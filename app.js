@@ -107,6 +107,7 @@ function render() {
   if (state.view === "home") return renderHome();
   if (state.view === "subject") return renderSubject();
   if (state.view === "topic") return renderTopic();
+  if (state.view === "summary") return renderSummary();
   if (state.view === "level") return renderLevel();
 }
 
@@ -212,15 +213,74 @@ function renderTopic() {
       <h2 class="level-title">${topic.icon} ${topic.title}</h2>
       <span style="width:64px"></span>
     </div>
+    <button class="btn summary-link" id="summary-btn">📋 總覽全部內容(快速預習/複習)</button>
     <div class="level-grid">${cards}</div>
   `;
 
   document.getElementById("back-btn").addEventListener("click", () => go("subject", { subjectId: state.subjectId }));
+  document.getElementById("summary-btn").addEventListener("click", () => go("summary"));
   app.querySelectorAll(".level-card").forEach((btn) => {
     btn.addEventListener("click", () => {
       go("level", { levelId: btn.dataset.level, mode: "study", index: 0, flipped: false, quiz: null });
     });
   });
+}
+
+/* ---- 總覽頁:成個主題所有內容,分「用詞」「用句」一次睇晒 ---- */
+function renderSummary() {
+  const topic = findTopic(state.subjectId, state.topicId);
+  if (!topic) return go("home");
+
+  const vocabRows = [];
+  const sentenceRows = [];
+
+  topic.levels.forEach((level) => {
+    level.cards.forEach((card) => {
+      const row = { level, card };
+      if (card.kind === "vocab") vocabRows.push(row);
+      else sentenceRows.push(row);
+    });
+  });
+
+  const renderRows = (rows) => {
+    let lastLevelId = null;
+    return rows
+      .map(({ level, card }) => {
+        let heading = "";
+        if (level.id !== lastLevelId) {
+          heading = `<h4 class="summary-group">${level.icon} ${level.title}</h4>`;
+          lastLevelId = level.id;
+        }
+        return `
+          ${heading}
+          <div class="summary-row">
+            <div class="summary-zh">${card.zh}</div>
+            ${card.ja ? `<div class="summary-ja">${card.ja}</div>` : ""}
+            ${card.romaji ? `<div class="summary-romaji">${card.romaji}</div>` : ""}
+            ${card.note ? `<div class="summary-note">${escapeHtml(card.note)}</div>` : ""}
+          </div>`;
+      })
+      .join("");
+  };
+
+  app.innerHTML = `
+    <div class="toolbar">
+      <button class="btn ghost" id="back-btn">← 返回</button>
+      <h2 class="level-title">📋 ${topic.title} 總覽</h2>
+      <span style="width:64px"></span>
+    </div>
+    <p class="summary-intro">呢頁將成個主題嘅內容集中晒,方便面試前快速預習或複習。用詞喺前,用句/長文喺後。</p>
+    <section class="summary-section">
+      <h3>🔤 用詞總覽(${vocabRows.length})</h3>
+      ${renderRows(vocabRows)}
+    </section>
+    <section class="summary-section">
+      <h3>💬 用句與長文總覽(${sentenceRows.length})</h3>
+      ${renderRows(sentenceRows)}
+    </section>
+  `;
+
+  document.getElementById("back-btn").addEventListener("click", () => go("topic", { topicId: state.topicId }));
 }
 
 /* ---- Level 4: Cards (study / quiz) ---- */
@@ -270,15 +330,15 @@ function renderStudy(level) {
     <div class="flashcard ${state.flipped ? "flipped" : ""}" id="flashcard">
       <span class="card-kind">${kindLabel(card.kind)}</span>
       <div class="card-zh">${card.zh}</div>
-      <div class="card-hint">點卡片睇日文 →</div>
+      <div class="card-hint">${card.ja ? "點卡片睇日文 →" : "點卡片睇詳細說明 →"}</div>
       <div class="card-back">
-        <div class="card-ja">${card.ja}</div>
+        ${card.ja ? `<div class="card-ja">${card.ja}</div>` : ""}
         ${card.romaji ? `<div class="card-romaji">${card.romaji}</div>` : ""}
         ${card.note ? `<div class="card-note">${escapeHtml(card.note)}</div>` : ""}
       </div>
     </div>
     <div class="card-actions">
-      <button class="btn speak" id="speak-btn" title="播放日文發音">🔊</button>
+      ${card.ja ? `<button class="btn speak" id="speak-btn" title="播放日文發音">🔊</button>` : ""}
       <button class="btn known ${known ? "active" : ""}" id="known-btn">${known ? "✅ 已識" : "標記已識"}</button>
     </div>
     <div class="nav-row">
@@ -290,10 +350,13 @@ function renderStudy(level) {
   document.getElementById("flashcard").addEventListener("click", () => {
     go("level", { flipped: !state.flipped });
   });
-  document.getElementById("speak-btn").addEventListener("click", (e) => {
-    e.stopPropagation();
-    speak(card.ja);
-  });
+  const speakBtn = document.getElementById("speak-btn");
+  if (speakBtn) {
+    speakBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      speak(card.ja);
+    });
+  }
   document.getElementById("known-btn").addEventListener("click", (e) => {
     e.stopPropagation();
     toggleKnown(state.topicId, card.id);
@@ -308,7 +371,7 @@ function renderStudy(level) {
 }
 
 function kindLabel(kind) {
-  return { vocab: "詞彙", sentence: "情境例句", text: "長文", qna: "模擬問答" }[kind] || "";
+  return { vocab: "詞彙", sentence: "情境例句", text: "長文", qna: "模擬問答", grammar: "文法" }[kind] || "";
 }
 
 function escapeHtml(str) {
@@ -327,7 +390,7 @@ function shuffle(arr) {
 }
 
 function buildQuiz(level) {
-  const pool = level.cards.filter((c) => c.kind !== "text" && c.kind !== "qna");
+  const pool = level.cards.filter((c) => c.kind !== "text" && c.kind !== "qna" && c.ja);
   const questions = shuffle(pool).map((card) => {
     const distractors = shuffle(pool.filter((c) => c.id !== card.id)).slice(0, 3);
     const options = shuffle([card, ...distractors]);
