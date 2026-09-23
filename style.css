@@ -1,0 +1,354 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap");
+
+:root {
+  --ivory: #fbf7f2;
+  --paper: #ffffff;
+  --ink: #2b2622;
+  --ink-soft: #6b625a;
+  --rose: #c9847a;
+  --rose-deep: #a8574e;
+  --gold: #b8935a;
+  --line: #e8e0d6;
+  --known: #7f9c7a;
+  --known-bg: #eef3ec;
+  --review-bg: #faf1ec;
+  --shadow: 0 8px 24px rgba(60, 45, 30, 0.08);
+  --radius: 18px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--ivory);
+  color: var(--ink);
+  font-family: "Noto Sans TC", "Noto Sans JP", sans-serif;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+  min-height: 100dvh;
+}
+
+.app {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 20px 16px 60px;
+}
+
+header.top {
+  text-align: center;
+  padding: 18px 0 8px;
+}
+
+header.top h1 {
+  font-family: "Noto Serif TC", serif;
+  font-size: 1.5rem;
+  margin: 0 0 4px;
+  color: var(--rose-deep);
+}
+
+header.top p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+}
+
+/* ---- Home: level grid ---- */
+.level-grid {
+  display: grid;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.level-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 18px 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: transform 0.15s ease;
+  text-align: left;
+}
+
+.level-card:active { transform: scale(0.98); }
+
+.level-icon {
+  font-size: 1.8rem;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--ivory);
+  border-radius: 14px;
+  flex-shrink: 0;
+}
+
+.level-info { flex: 1; min-width: 0; }
+
+.level-info h2 {
+  font-family: "Noto Serif TC", serif;
+  font-size: 1.05rem;
+  margin: 0 0 2px;
+}
+
+.level-info .sub {
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  margin: 0 0 8px;
+}
+
+.progress-bar {
+  height: 6px;
+  border-radius: 999px;
+  background: var(--line);
+  overflow: hidden;
+}
+
+.progress-bar > div {
+  height: 100%;
+  background: linear-gradient(90deg, var(--gold), var(--rose));
+  border-radius: 999px;
+  transition: width 0.3s ease;
+}
+
+.progress-label {
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+  margin-top: 4px;
+}
+
+/* ---- Level view ---- */
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.btn {
+  border: 1px solid var(--line);
+  background: var(--paper);
+  color: var(--ink);
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.btn.primary {
+  background: var(--rose-deep);
+  border-color: var(--rose-deep);
+  color: #fff;
+}
+
+.btn.ghost { background: transparent; }
+
+.btn:disabled { opacity: 0.4; cursor: default; }
+
+.level-title {
+  font-family: "Noto Serif TC", serif;
+  font-size: 1.2rem;
+  color: var(--rose-deep);
+  margin: 0;
+}
+
+.mode-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.mode-tabs button {
+  flex: 1;
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  color: var(--ink-soft);
+  font-family: inherit;
+  font-size: 0.88rem;
+  cursor: pointer;
+}
+
+.mode-tabs button.active {
+  background: var(--rose-deep);
+  color: #fff;
+  border-color: var(--rose-deep);
+}
+
+/* ---- Flashcard ---- */
+.card-progress {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  margin-bottom: 10px;
+}
+
+.flashcard {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  box-shadow: var(--shadow);
+  padding: 28px 22px;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 14px;
+  cursor: pointer;
+}
+
+.card-kind {
+  align-self: flex-start;
+  font-size: 0.72rem;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--ivory);
+  color: var(--gold);
+  border: 1px solid var(--line);
+}
+
+.card-zh {
+  font-size: 1.08rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.card-back { display: none; flex-direction: column; gap: 10px; }
+.flashcard.flipped .card-back { display: flex; }
+.flashcard.flipped .card-hint { display: none; }
+
+.card-ja {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--rose-deep);
+  line-height: 1.7;
+}
+
+.card-romaji {
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+.card-note {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  background: var(--ivory);
+  border-radius: 12px;
+  padding: 10px 12px;
+  white-space: pre-line;
+}
+
+.card-hint {
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  text-align: center;
+  margin-top: 6px;
+}
+
+.card-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.card-actions .btn { flex: 1; }
+
+.btn.speak {
+  width: 44px;
+  flex: 0 0 44px;
+  font-size: 1.1rem;
+}
+
+.btn.known.active {
+  background: var(--known-bg);
+  border-color: var(--known);
+  color: var(--known);
+  font-weight: 500;
+}
+
+.nav-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 14px;
+  gap: 10px;
+}
+
+/* ---- Quiz ---- */
+.quiz-progress {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  margin-bottom: 10px;
+}
+
+.quiz-q {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  box-shadow: var(--shadow);
+  padding: 24px 20px;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.quiz-q .card-zh { font-size: 1.15rem; }
+
+.quiz-options {
+  display: grid;
+  gap: 10px;
+}
+
+.quiz-option {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 14px 16px;
+  text-align: left;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.quiz-option.correct {
+  background: var(--known-bg);
+  border-color: var(--known);
+  color: var(--known);
+}
+
+.quiz-option.wrong {
+  background: var(--review-bg);
+  border-color: var(--rose);
+  color: var(--rose-deep);
+}
+
+.quiz-option[disabled] { cursor: default; }
+
+.quiz-result {
+  text-align: center;
+  padding: 30px 10px;
+}
+
+.quiz-result .score {
+  font-family: "Noto Serif TC", serif;
+  font-size: 2.2rem;
+  color: var(--rose-deep);
+  margin-bottom: 6px;
+}
+
+footer.hint {
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+  margin-top: 30px;
+}
+
+.hidden { display: none !important; }
