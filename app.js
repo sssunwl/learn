@@ -63,11 +63,11 @@ function subjectStats(subject) {
   );
 }
 
-function speak(text) {
+function speak(text, lang) {
   if (!("speechSynthesis" in window)) return;
   const clean = text.replace(/（[^）]*）/g, "");
   const utter = new SpeechSynthesisUtterance(clean);
-  utter.lang = "ja-JP";
+  utter.lang = lang || "ja-JP";
   utter.rate = 0.9;
   window.speechSynthesis.cancel();
   window.speechSynthesis.speak(utter);
@@ -230,6 +230,7 @@ function renderTopic() {
 function renderSummary() {
   const topic = findTopic(state.subjectId, state.topicId);
   if (!topic) return go("home");
+  const subject = findSubject(state.subjectId);
 
   const vocabRows = [];
   const sentenceRows = [];
@@ -255,7 +256,7 @@ function renderSummary() {
           ${heading}
           <div class="summary-row">
             <div class="summary-zh">${card.zh}</div>
-            ${card.ja ? `<div class="summary-ja">${card.ja}</div>` : ""}
+            ${card.ja ? `<div class="summary-ja" lang="${subject.lang ? subject.lang.split('-')[0] : 'ja'}">${card.ja}</div>` : ""}
             ${card.romaji ? `<div class="summary-romaji">${card.romaji}</div>` : ""}
             ${card.note ? `<div class="summary-note">${escapeHtml(card.note)}</div>` : ""}
           </div>`;
@@ -321,6 +322,7 @@ function renderLevel() {
 
 function renderStudy(level) {
   const body = document.getElementById("mode-body");
+  const subject = findSubject(state.subjectId);
   const idx = Math.min(state.index, level.cards.length - 1);
   const card = level.cards[idx];
   const known = isKnown(state.topicId, card.id);
@@ -330,15 +332,15 @@ function renderStudy(level) {
     <div class="flashcard ${state.flipped ? "flipped" : ""}" id="flashcard">
       <span class="card-kind">${kindLabel(card.kind)}</span>
       <div class="card-zh">${card.zh}</div>
-      <div class="card-hint">${card.ja ? "點卡片睇日文 →" : "點卡片睇詳細說明 →"}</div>
+      <div class="card-hint">${card.ja ? "點卡片睇答案 →" : "點卡片睇詳細說明 →"}</div>
       <div class="card-back">
-        ${card.ja ? `<div class="card-ja">${card.ja}</div>` : ""}
+        ${card.ja ? `<div class="card-ja" lang="${subject.lang ? subject.lang.split('-')[0] : 'ja'}">${card.ja}</div>` : ""}
         ${card.romaji ? `<div class="card-romaji">${card.romaji}</div>` : ""}
         ${card.note ? `<div class="card-note">${escapeHtml(card.note)}</div>` : ""}
       </div>
     </div>
     <div class="card-actions">
-      ${card.ja ? `<button class="btn speak" id="speak-btn" title="播放日文發音">🔊</button>` : ""}
+      ${card.ja ? `<button class="btn speak" id="speak-btn" title="播放發音">🔊</button>` : ""}
       <button class="btn known ${known ? "active" : ""}" id="known-btn">${known ? "✅ 已識" : "標記已識"}</button>
     </div>
     <div class="nav-row">
@@ -354,7 +356,8 @@ function renderStudy(level) {
   if (speakBtn) {
     speakBtn.addEventListener("click", (e) => {
       e.stopPropagation();
-      speak(card.ja);
+      const subject = findSubject(state.subjectId);
+      speak(card.ja, subject && subject.lang);
     });
   }
   document.getElementById("known-btn").addEventListener("click", (e) => {

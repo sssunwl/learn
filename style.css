@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Sans+Thai:wght@400;500;700&display=swap");
 
 :root {
   --ivory: #fbf7f2;
@@ -433,4 +433,8 @@ footer.hint {
   padding: 8px 10px;
   margin-top: 6px;
   white-space: pre-line;
+}
+
+[lang="th"] {
+  font-family: "Noto Sans Thai", "Noto Sans TC", sans-serif;
 }

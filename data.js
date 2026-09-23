@@ -438,6 +438,7 @@ const SUBJECTS = [
     icon: "🇯🇵",
     title: "日文",
     subtitle: "情境會話、口譯、工作日文",
+    lang: "ja-JP",
     topics: [
       {
         id: "wedding-interpreter",
@@ -466,6 +467,29 @@ const SUBJECTS = [
         title: "職場敬語與商業日文",
         subtitle: "敬語動詞、職場常用句、對客vs對同事",
         levels: BUSINESS_KEIGO_LEVELS
+      }
+    ]
+  },
+  {
+    id: "thai",
+    icon: "🇹🇭",
+    title: "泰文",
+    subtitle: "從零基礎到旅遊實戰",
+    lang: "th-TH",
+    topics: [
+      {
+        id: "thai-basics",
+        icon: "🔤",
+        title: "泰文入門基礎",
+        subtitle: "聲調、招呼語、數字",
+        levels: THAI_BASICS_LEVELS
+      },
+      {
+        id: "thai-travel",
+        icon: "🧳",
+        title: "旅遊實景會話",
+        subtitle: "機場、交通、飯店、餐廳、購物、問路、求助",
+        levels: THAI_TRAVEL_LEVELS
       }
     ]
   }
