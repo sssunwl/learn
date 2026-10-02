@@ -23,7 +23,7 @@ SUBJECTS = [
 - **日文專用**:字串內嘅括號讀音(如「確認（かくにん）」)係刻意保留嘅格式,直接顯示俾使用者睇,唔額外做 ruby 拆字;每個含漢字嘅 `ja`/`note` 都要標晒讀音,唔可以淨係得羅馬字
 - **泰文專用**:唔用括號讀音,`romaji` 欄位統一用 à/á/â/ǎ(低/高/降/升調,中平調無符號)標聲調,唔可以自創第二套標法;拼音冇十足把握就喺 `note` 標「待核對」,唔可以靠估
 - `en`(可選):英文對照,有填就喺卡片正面中文下面顯示(用喺 Rundown 呢類英文原稿嘅中英日對照)
-- topic 可選 `bodyMap`({front, back} 部位點陣列,app.js `renderBodyMap` 畫人體圖,可遮住日文自測)、`flowMaps`(陣列,每張 {id, icon, title, plan, places, steps};plan 揀 app.js `FLOW_PLANS` 入面嘅底圖 chapel/banquet/beach,`renderFlowMap` 畫俯視平面圖逐步走,step 可填 time/at/path)同 `crosses`(十字連結記憶:中心共用字 type「字」或共用開頭音 type「音」+ 四個詞 + 一句 story 串埋,`renderCross` 按日期每日輪一組);兩樣都係 topic 主頁上面嘅圖像記憶區,冇填就唔顯示。部位/十字詞嘅讀音放獨立 `kana`/`r` 欄位,唔用括號格式
+- topic 可選 `bodyMap`({front, back} 部位點陣列,app.js `renderBodyMap` 畫人體圖,可遮住日文自測)、`flowMaps`(陣列,每張 {id, icon, title, plan, places, steps};plan 揀 app.js `FLOW_PLANS` 入面嘅底圖 chapel/banquet/beach,`renderFlowMap` 畫俯視平面圖逐步走,step 可填 time/at/path)同 `crosses`(十字連結記憶:中心共用字 type「字」或共用開頭音 type「音」+ 四個詞 + 一句 story 串埋,`renderCross` 按日期每日輪一組;可選 `set` 欄位分組,多過一組自動出分頁);兩樣都係 topic 主頁上面嘅圖像記憶區,冇填就唔顯示。部位/十字詞嘅讀音放獨立 `kana`/`r` 欄位,唔用括號格式
 - `subject.lang`(BCP-47,例如 `ja-JP`/`th-TH`)俾 `app.js` 嘅 `speak()` 揀 TTS 語音,加新學科一定要填呢個欄位
 - 進度(已識/再溫習)存喺 `localStorage`,key 係 `topicId:cardId`,per-device 唔會同步
 - 每個主題(topic)自動有一頁「總覽」(`app.js` 嘅 `renderSummary`):將成個主題所有 level 嘅卡片攤平,分「用詞」/「用句與長文」兩節顯示,方便面試前快速預習/複習,唔使逐張 flip。呢個係頁面邏輯自動生成,加新內容唔使額外維護總覽頁
@@ -42,7 +42,7 @@ SUBJECTS = [
 
 ## 目前內容(日文學科,`data.js`)
 
-- **沖繩婚禮中日口譯**:面試準備/教堂流程/婚宴/攝影/家屬與確認溝通/突發情況/寒暄與基本應對/交通住宿與後勤/宴會 Rundown・After Party(2026-10-02 加,56 張,中英日對照,來自 SS 真實工作 rundown;新人姓名、場地名唔入 repo);主頁有教堂儀式流程圖(`WEDDING_CHAPEL_MAP`,13 步)、婚宴＋二次會流程圖(`WEDDING_BANQUET_MAP`,18 步,跟 10/3 真實 rundown 時間,含 MC/音響 cue)同沙灘二次會流程圖(`WEDDING_BEACH_MAP`,14 步,仙女棒花道/安全/滅火提醒;rundown 冇寫嘅細節係常見做法,以現場為準),都係俯視平面圖標位置同路線、中英日+口譯提示,同 10 組婚禮十字連結記憶(`WEDDING_CROSSES`)
+- **沖繩婚禮中日口譯**:面試準備/教堂流程/婚宴/攝影/家屬與確認溝通/突發情況/寒暄與基本應對/交通住宿與後勤/宴會 Rundown・After Party(2026-10-02 加,56 張,中英日對照,來自 SS 真實工作 rundown;新人姓名、場地名唔入 repo);主頁有教堂儀式流程圖(`WEDDING_CHAPEL_MAP`,13 步)、婚宴＋二次會流程圖(`WEDDING_BANQUET_MAP`,18 步,跟 10/3 真實 rundown 時間,含 MC/音響 cue)同沙灘二次會流程圖(`WEDDING_BEACH_MAP`,14 步,仙女棒花道/安全/滅火提醒;rundown 冇寫嘅細節係常見做法,以現場為準),都係俯視平面圖標位置同路線、中英日+口譯提示,同 20 組婚禮十字連結記憶(`WEDDING_CROSSES`,分「教堂・婚禮」「婚宴」兩組各 10 組)
 - **日常會話**:日常寒暄與基本應對/餐廳會話・店員篇/餐廳會話・食客篇(含大量味道、口感詞彙)
 - **日常用詞與文法**:常用文法句型(20 個核心句型)/日常生活用詞(時間、家庭稱謂、常用動詞、常用形容詞)
 - **職場敬語與商業日文**:敬語動詞對照(尊敬語/謙譲語)/職場常用敬語句/對客 vs 對同事嘅語氣分別(解答「同教堂/宴會工作人員溝通應該用敬語定商業語」呢類問題)

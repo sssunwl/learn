@@ -648,3 +648,5 @@ button.cp-step-ja { border: 1px dashed var(--gold); border-radius: 10px; backgro
 .bc-bucket { fill: #9fc3d6; stroke: #7aa6bd; }
 .bc-park { fill: #ece8e3; }
 .bc-car { fill: #cfc7bd; }
+
+.cross-sets { display: flex; width: fit-content; margin: 0 auto 12px; }

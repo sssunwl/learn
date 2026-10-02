@@ -519,8 +519,10 @@ function readingHtml(cross, word) {
 function renderCross(topic) {
   const box = document.getElementById("cross-box");
   if (!box) return;
-  const list = topic.crosses;
-  const s = (crossStates[topic.id] ||= { index: null, hide: false, revealed: new Set() });
+  // cross.set(可選)將十字分組,多過一組就出分頁
+  const sets = [...new Set(topic.crosses.map((c) => c.set || ""))];
+  const s = (crossStates[topic.id] ||= { set: sets[0], index: null, hide: false, revealed: new Set() });
+  const list = topic.crosses.filter((c) => (c.set || "") === s.set);
   // 每日輪一組:按日數揀,之後用 ← → 自己睇其他組
   const today = Math.floor((Date.now() - new Date().getTimezoneOffset() * 60000) / 86400000);
   if (s.index === null) s.index = today % list.length;
@@ -539,7 +541,12 @@ function renderCross(topic) {
     })
     .join("");
 
+  const setTabs = sets.length > 1
+    ? `<div class="seg cross-sets">${sets.map((name) => `<button data-set="${name}" class="${name === s.set ? "active" : ""}">${name}</button>`).join("")}</div>`
+    : "";
+
   box.innerHTML = `
+    ${setTabs}
     <div class="cross-head">
       <button class="btn ghost" id="cross-prev">←</button>
       <div class="cross-meta">${isToday ? "今日一組" : "第 " + (s.index + 1) + " 組"} · ${s.index + 1}/${list.length}</div>
@@ -568,7 +575,15 @@ function renderCross(topic) {
     s.revealed.clear();
     renderCross(topic);
   };
-  box.querySelector("#cross-prev").addEventListener("click", () => move(-1));
+  box.querySelectorAll(".cross-sets button").forEach((btn) =>
+    btn.addEventListener("click", () => {
+      s.set = btn.dataset.set;
+      s.index = null;
+      s.revealed.clear();
+      renderCross(topic);
+    })
+  );
+    box.querySelector("#cross-prev").addEventListener("click", () => move(-1));
   box.querySelector("#cross-next").addEventListener("click", () => move(1));
   box.querySelector("#cross-speak").addEventListener("click", () => speak(cross.story, "ja-JP"));
   box.querySelector("#cross-hide").addEventListener("click", () => {
