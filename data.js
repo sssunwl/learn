@@ -917,6 +917,35 @@ const SEITAI_CROSSES = [
   }
 ];
 
+// 教堂儀式流程圖:topic 主頁嘅俯視平面圖(app.js 嘅 renderChapelMap)
+// viewBox 360×540,上面係祭壇,下面係入口;面向祭壇右邊=新郎側、左邊=新婦側
+// step.at = 呢一步發生嘅位置,step.path = 有人行動嘅路線(可選)
+const WEDDING_CHAPEL_MAP = {
+  places: [
+    { x: 180, y: 50, ja: "ステンドグラス", zh: "彩繪玻璃", small: true },
+    { x: 228, y: 96, ja: "祭壇", kana: "さいだん", zh: "祭壇", anchor: "start" },
+    { x: 52, y: 106, ja: "オルガン", zh: "風琴/聖歌隊", anchor: "middle" },
+    { x: 95, y: 170, ja: "新婦側", kana: "しんぷがわ", zh: "女家親友", anchor: "middle" },
+    { x: 265, y: 170, ja: "新郎側", kana: "しんろうがわ", zh: "男家親友", anchor: "middle" },
+    { x: 180, y: 497, ja: "扉", kana: "とびら", zh: "大門", anchor: "middle" }
+  ],
+  steps: [
+    { ja: "参列者入場・着席", kana: "さんれつしゃにゅうじょう・ちゃくせき", zh: "賓客進場、入座", en: "Guests enter and take their seats", at: [[95, 300], [265, 300]], path: "180,476 180,300", note: "帶客人入座:面向祭壇,左邊係新婦側,右邊係新郎側。\n皆様（みなさま）、チャペルへご案内（あんない）いたします。" },
+    { ja: "新郎入場", kana: "しんろうにゅうじょう", zh: "新郎進場", en: "Groom's entrance", at: [[196, 146]], path: "180,476 180,160 196,146", note: "新郎先行入去,喺祭壇前面等新娘。" },
+    { ja: "ベールダウン", kana: "", zh: "媽媽幫新娘落頭紗", en: "Veil-down by the mother", at: [[180, 466]], note: "日本特有環節:入場前喺門口,媽媽幫新娘放低頭紗,代表最後一次幫女兒打扮。華人家庭多數唔知,要預先解釋。" },
+    { ja: "新婦入場", kana: "しんぷにゅうじょう", zh: "新娘同爸爸進場", en: "Bride's entrance with her father", at: [[164, 146]], path: "180,476 180,160 164,146", note: "新娘挽住爸爸行バージンロード,到前面爸爸將新娘交俾新郎。\n新婦様（しんぷさま）とお父様（とうさま）のご入場（にゅうじょう）です。" },
+    { ja: "讃美歌斉唱", kana: "さんびかせいしょう", zh: "全體唱聖詩", en: "Hymn singing", at: [[52, 81]], note: "全體起身一齊唱,歌詞紙通常放喺座位上。\n皆様（みなさま）、ご起立（きりつ）ください。" },
+    { ja: "聖書朗読・祈祷", kana: "せいしょろうどく・きとう", zh: "讀聖經、祈禱", en: "Bible reading and prayer", at: [[180, 118]], note: "牧師讀聖經同祈禱,參列者可以坐低。" },
+    { ja: "誓いの言葉", kana: "ちかいのことば", zh: "結婚誓詞", en: "Wedding vows", at: [[164, 146], [196, 146]], note: "牧師問:健（すこ）やかなる時（とき）も、病（や）める時（とき）も⋯⋯愛（あい）することを誓（ちか）いますか？\n新人答:はい、誓（ちか）います。" },
+    { ja: "指輪交換", kana: "ゆびわこうかん", zh: "交換戒指", en: "Exchange of rings", at: [[164, 146], [196, 146]], note: "新郎先幫新娘戴,之後新娘幫新郎戴,戴喺左手無名指(薬指（くすりゆび）)。" },
+    { ja: "ベールアップ・誓いのキス", kana: "ベールアップ・ちかいのキス", zh: "揭頭紗、誓約之吻", en: "Veil lifting and the kiss", at: [[180, 146]], note: "新郎揭起頭紗,然後誓約之吻。攝影師最緊張嘅一刻,唔好企喺中間。" },
+    { ja: "結婚証明書に署名", kana: "けっこんしょうめいしょにしょめい", zh: "簽結婚證書", en: "Signing the marriage certificate", at: [[180, 96]], note: "新人喺祭壇簽名,有時證婚人或者父母都要簽。\nこちらにご署名（しょめい）をお願（ねが）いします。" },
+    { ja: "結婚成立宣言", kana: "けっこんせいりつせんげん", zh: "宣佈結婚成立", en: "Declaration of marriage", at: [[180, 118]], note: "牧師宣佈兩人正式成為夫婦,全場拍手。" },
+    { ja: "新郎新婦退場", kana: "しんろうしんぷたいじょう", zh: "新人退場", en: "Recessional (couple exits)", at: [[180, 300]], path: "180,146 180,476", note: "新人一齊行返出去,賓客拍手送。" },
+    { ja: "フラワーシャワー", kana: "", zh: "撒花瓣祝福", en: "Flower shower", at: [[180, 524]], note: "喺教堂門口撒花瓣祝福新人。工作人員會預先派花瓣,要提醒賓客先出去排好。\n皆様（みなさま）、お先（さき）にチャペルの外（そと）へお願（ねが）いします。" }
+  ]
+};
+
 // 婚禮口譯嘅十字連結記憶(格式同 SEITAI_CROSSES)
 const WEDDING_CROSSES = [
   {
@@ -1052,6 +1081,7 @@ const SUBJECTS = [
         icon: "💍",
         title: "沖繩婚禮中日口譯",
         subtitle: "面試準備 · 情境詞彙 · Rundown 中英日 · 選擇題測驗",
+        chapelMap: WEDDING_CHAPEL_MAP,
         crosses: WEDDING_CROSSES,
         levels: WEDDING_INTERPRETER_LEVELS
       },

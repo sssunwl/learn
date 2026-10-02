@@ -590,3 +590,48 @@ footer.hint {
 /* 英文對照(可選 en 欄位) */
 .card-en { font-size: 0.9rem; color: var(--gold); font-style: italic; margin-top: -6px; }
 .summary-en { font-size: 0.82rem; color: var(--gold); font-style: italic; }
+
+/* ---- 教堂儀式流程圖 ---- */
+.chapel-svg { display: block; width: 100%; max-width: 420px; margin: 0 auto; }
+.cp-wall { fill: #fdfaf6; stroke: var(--line); stroke-width: 2; }
+.cp-glass { fill: #cfe0ea; stroke: #b7cbd8; }
+.cp-cross { stroke: var(--gold); stroke-width: 3; stroke-linecap: round; }
+.cp-altar { fill: #e9d9c4; stroke: var(--gold); }
+.cp-organ { fill: #efe6da; stroke: var(--line); }
+.cp-aisle { fill: #f6e3df; }
+.cp-aisle-text { font-family: "Noto Sans JP", sans-serif; font-size: 11px; fill: var(--rose); letter-spacing: 0.15em; }
+.cp-pews rect { fill: #eadfd2; }
+.cp-door { fill: var(--gold); }
+.cp-outside { font-family: "Noto Sans JP", sans-serif; font-size: 11px; fill: var(--ink-soft); }
+.cp-place { font-family: "Noto Sans JP", sans-serif; font-size: 13px; font-weight: 700; fill: var(--rose-deep); }
+.cp-place.small { font-size: 9px; font-weight: 400; fill: #7a96a8; }
+.cp-kana { font-size: 9px; font-weight: 400; fill: var(--ink-soft); }
+.cp-place-zh { font-size: 10px; fill: var(--ink-soft); }
+.cp-person { stroke: #fff; stroke-width: 2; }
+.cp-person.priest, .cp-legend .priest { fill: #8a7a6a; background: #8a7a6a; }
+.cp-person.bride, .cp-legend .bride { fill: #e7a9a0; background: #e7a9a0; }
+.cp-person.groom, .cp-legend .groom { fill: #5f6f86; background: #5f6f86; }
+.cp-route { fill: none; stroke: var(--rose-deep); stroke-width: 3; stroke-dasharray: 6 5; stroke-linecap: round; stroke-linejoin: round; }
+#cp-arrow path { fill: var(--rose-deep); }
+.cp-mark { fill: var(--rose-deep); }
+.cp-pulse { fill: var(--rose); opacity: 0.25; }
+@media (prefers-reduced-motion: no-preference) {
+  .cp-pulse { animation: cp-pulse 1.6s ease-out infinite; transform-box: fill-box; transform-origin: center; }
+  @keyframes cp-pulse { 0% { transform: scale(0.6); opacity: 0.45; } 100% { transform: scale(1.5); opacity: 0; } }
+}
+.cp-legend { display: flex; justify-content: center; align-items: center; gap: 6px; flex-wrap: wrap; font-size: 0.75rem; color: var(--ink-soft); margin-top: 4px; }
+.cp-legend .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-left: 6px; }
+.cp-legend .mark { background: var(--rose-deep); }
+.cp-chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; margin: 12px 0; }
+.cp-chip { width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--line); background: var(--paper); color: var(--ink-soft); font-family: inherit; font-size: 0.8rem; cursor: pointer; }
+.cp-chip.active { background: var(--rose-deep); border-color: var(--rose-deep); color: #fff; }
+.cp-step { background: var(--ivory); border-radius: 14px; padding: 14px; }
+.cp-step-no { font-size: 0.78rem; color: var(--gold); }
+.cp-step-zh { font-size: 1.05rem; font-weight: 700; margin-top: 2px; }
+.cp-step-en { font-size: 0.85rem; color: var(--gold); font-style: italic; }
+.cp-step-ja { display: block; font-family: "Noto Sans JP", sans-serif; font-size: 1.35rem; font-weight: 700; color: var(--rose-deep); margin-top: 8px; }
+button.cp-step-ja { border: 1px dashed var(--gold); border-radius: 10px; background: var(--paper); color: var(--gold); font-size: 1rem; padding: 8px 12px; cursor: pointer; width: 100%; text-align: left; }
+.cp-step-kana { font-family: "Noto Sans JP", sans-serif; font-size: 0.8rem; color: var(--ink-soft); }
+.cp-step-note { font-size: 0.85rem; color: var(--ink); white-space: pre-line; margin-top: 10px; padding-top: 10px; border-top: 1px dashed var(--line); }
+.cp-step .story-actions .btn:not(.speak) { flex: 1; }
+.cp-hide { width: 100%; margin-top: 8px; }
