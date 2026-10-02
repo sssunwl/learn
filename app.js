@@ -343,7 +343,7 @@ function renderBodyMap(topic) {
 }
 
 /* ---- 十字連結記憶:中間共用字/音,四邊四個詞,一句故事串埋 ---- */
-const crossState = { index: null, hide: false, revealed: new Set() };
+const crossStates = {}; // 每個 topic 各自記住睇緊邊組
 
 function highlightShared(cross, word) {
   if (cross.type === "字") {
@@ -363,7 +363,7 @@ function renderCross(topic) {
   const box = document.getElementById("cross-box");
   if (!box) return;
   const list = topic.crosses;
-  const s = crossState;
+  const s = (crossStates[topic.id] ||= { index: null, hide: false, revealed: new Set() });
   // 每日輪一組:按日數揀,之後用 ← → 自己睇其他組
   const today = Math.floor((Date.now() - new Date().getTimezoneOffset() * 60000) / 86400000);
   if (s.index === null) s.index = today % list.length;
