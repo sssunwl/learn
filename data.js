@@ -430,6 +430,195 @@ const BUSINESS_KEIGO_LEVELS = [
   }
 ];
 
+const SEITAI_LEVELS = [
+  {
+    id: "seitai-basics",
+    icon: "🏥",
+    title: "整骨院・整體院基本",
+    subtitle: "兩者分別、預約、問診票、姿勢指示",
+    cards: [
+      {
+        id: "sb-01",
+        kind: "text",
+        zh: "整骨院、整體院、按摩有咩分別?",
+        ja: "",
+        note: "整骨院（せいこついん）／接骨院（せっこついん）:由國家資格「柔道整復師（じゅうどうせいふくし）」施術,主要處理扭傷、撞傷、拉傷等急性受傷,呢類情況可以用健保(要帶保険証（ほけんしょう）)。單純肩頸痠痛、慢性疲勞一般唔用得健保。\n\n整体（せいたい）:冇國家資格,全部自費,著重調整骨盆、姿勢、身體平衡,收費同手法每間差好遠。\n\nマッサージ／リラクゼーション:放鬆為主。真正嘅「按摩」要有「あん摩（ま）マッサージ指圧師（しあつし）」資格,街上好多「リラク」店其實係放鬆店。\n\n實際用法:講自己去整體,可以講「整体（せいたい）に行（い）ってきた」;去整骨院就講「整骨院（せいこついん）に通（かよ）っている」(長期定期去用「通う」)。"
+      },
+      { id: "sb-v01", kind: "vocab", zh: "整骨院", ja: "整骨院（せいこついん）" },
+      { id: "sb-v02", kind: "vocab", zh: "整體(院)", ja: "整体（せいたい）" },
+      { id: "sb-v03", kind: "vocab", zh: "施術/治療(整體院最常用的說法)", ja: "施術（せじゅつ）" },
+      { id: "sb-v04", kind: "vocab", zh: "問診表", ja: "問診票（もんしんひょう）" },
+      { id: "sb-v05", kind: "vocab", zh: "初診/第一次來", ja: "初診（しょしん）／初（はじ）めて" },
+      { id: "sb-v06", kind: "vocab", zh: "健保卡", ja: "保険証（ほけんしょう）" },
+      { id: "sb-v07", kind: "vocab", zh: "換衣服", ja: "着替（きが）え" },
+      { id: "sb-v08", kind: "vocab", zh: "趴著(面朝下)", ja: "うつ伏（ぶ）せ" },
+      { id: "sb-v09", kind: "vocab", zh: "仰躺(面朝上)", ja: "仰向（あおむ）け" },
+      { id: "sb-v10", kind: "vocab", zh: "側躺", ja: "横向（よこむ）き" },
+      { id: "sb-v11", kind: "vocab", zh: "力度/強度", ja: "強（つよ）さ／力加減（ちからかげん）" },
+      { id: "sb-v12", kind: "vocab", zh: "伸展", ja: "ストレッチ" },
+      { id: "sb-v13", kind: "vocab", zh: "矯正", ja: "矯正（きょうせい）" },
+      { id: "sb-01s", kind: "sentence", zh: "我想預約,第一次來。", ja: "予約（よやく）をお願（ねが）いしたいんですが、初（はじ）めてです。", romaji: "Yoyaku o onegai shitai n desu ga, hajimete desu." },
+      { id: "sb-02s", kind: "sentence", zh: "可以用健保嗎?", ja: "保険（ほけん）は使（つか）えますか？", romaji: "Hoken wa tsukaemasu ka?" },
+      { id: "sb-03s", kind: "sentence", zh: "需要換衣服嗎?", ja: "着替（きが）えは必要（ひつよう）ですか？", romaji: "Kigae wa hitsuyō desu ka?" },
+      { id: "sb-04s", kind: "sentence", zh: "(師傅講)請趴下。", ja: "うつ伏（ぶ）せになってください。", romaji: "Utsubuse ni natte kudasai." },
+      { id: "sb-05s", kind: "sentence", zh: "(師傅講)請轉身仰躺。", ja: "仰向（あおむ）けになってください。", romaji: "Aomuke ni natte kudasai." }
+    ]
+  },
+  {
+    id: "seitai-body",
+    icon: "🦴",
+    title: "身體部位",
+    subtitle: "講清楚「邊度」痛",
+    cards: [
+      { id: "bd-01", kind: "vocab", zh: "頸", ja: "首（くび）" },
+      { id: "bd-02", kind: "vocab", zh: "頸根/頸和肩交界", ja: "首（くび）の付（つ）け根（ね）" },
+      { id: "bd-03", kind: "vocab", zh: "後腦", ja: "後頭部（こうとうぶ）" },
+      { id: "bd-04", kind: "vocab", zh: "太陽穴", ja: "こめかみ" },
+      { id: "bd-05", kind: "vocab", zh: "下巴/下顎", ja: "顎（あご）" },
+      { id: "bd-06", kind: "vocab", zh: "膊頭/肩膀", ja: "肩（かた）" },
+      { id: "bd-07", kind: "vocab", zh: "肩胛骨", ja: "肩甲骨（けんこうこつ）" },
+      { id: "bd-08", kind: "vocab", zh: "背脊", ja: "背中（せなか）" },
+      { id: "bd-09", kind: "vocab", zh: "脊椎/脊骨", ja: "背骨（せぼね）" },
+      { id: "bd-10", kind: "vocab", zh: "腰", ja: "腰（こし）" },
+      { id: "bd-11", kind: "vocab", zh: "骨盆", ja: "骨盤（こつばん）" },
+      { id: "bd-12", kind: "vocab", zh: "屁股", ja: "お尻（しり）" },
+      { id: "bd-13", kind: "vocab", zh: "髖關節", ja: "股関節（こかんせつ）" },
+      { id: "bd-14", kind: "vocab", zh: "大腿", ja: "太（ふと）もも" },
+      { id: "bd-15", kind: "vocab", zh: "大腿後側", ja: "太（ふと）ももの裏（うら）" },
+      { id: "bd-16", kind: "vocab", zh: "膝頭", ja: "膝（ひざ）" },
+      { id: "bd-17", kind: "vocab", zh: "小腿肚", ja: "ふくらはぎ" },
+      { id: "bd-18", kind: "vocab", zh: "腳眼/腳踝", ja: "足首（あしくび）" },
+      { id: "bd-19", kind: "vocab", zh: "腳底", ja: "足（あし）の裏（うら）" },
+      { id: "bd-20", kind: "vocab", zh: "手臂", ja: "腕（うで）" },
+      { id: "bd-21", kind: "vocab", zh: "上臂(拜拜肉位置)", ja: "二（に）の腕（うで）" },
+      { id: "bd-22", kind: "vocab", zh: "手踭/手肘", ja: "肘（ひじ）" },
+      { id: "bd-23", kind: "vocab", zh: "手腕", ja: "手首（てくび）" },
+      { id: "bd-24", kind: "vocab", zh: "右邊/左邊/兩邊", ja: "右側（みぎがわ）／左側（ひだりがわ）／両方（りょうほう）" },
+      { id: "bd-25", kind: "vocab", zh: "(身體)深處/裡面", ja: "奥（おく）" }
+    ]
+  },
+  {
+    id: "seitai-symptoms",
+    icon: "🩹",
+    title: "常見症狀與身體狀態",
+    subtitle: "肩頸痠痛、落枕、閃到腰、寒背⋯",
+    cards: [
+      { id: "sy-01", kind: "vocab", zh: "肩頸痠痛/膊頭硬", ja: "肩（かた）こり", note: "動詞講法:肩（かた）が凝（こ）っている。" },
+      { id: "sy-02", kind: "vocab", zh: "腰痛", ja: "腰痛（ようつう）" },
+      { id: "sy-03", kind: "vocab", zh: "頭痛", ja: "頭痛（ずつう）" },
+      { id: "sy-04", kind: "vocab", zh: "落枕", ja: "寝違（ねちが）え", note: "「寝違（ねちが）えました」=我瞓捩頸。" },
+      { id: "sy-05", kind: "vocab", zh: "閃到腰(急性腰扭傷)", ja: "ぎっくり腰（ごし）" },
+      { id: "sy-06", kind: "vocab", zh: "五十肩/肩周炎", ja: "四十肩（しじゅうかた）／五十肩（ごじゅうかた）" },
+      { id: "sy-07", kind: "vocab", zh: "寒背/駝背", ja: "猫背（ねこぜ）" },
+      { id: "sy-08", kind: "vocab", zh: "腰向前凹/骨盆前傾", ja: "反（そ）り腰（ごし）" },
+      { id: "sy-09", kind: "vocab", zh: "頸椎變直(手機頸)", ja: "ストレートネック" },
+      { id: "sy-10", kind: "vocab", zh: "骨盆歪斜", ja: "骨盤（こつばん）の歪（ゆが）み" },
+      { id: "sy-11", kind: "vocab", zh: "姿勢差", ja: "姿勢（しせい）が悪（わる）い" },
+      { id: "sy-12", kind: "vocab", zh: "水腫/浮腫", ja: "むくみ", note: "動詞:足（あし）がむくむ。" },
+      { id: "sy-13", kind: "vocab", zh: "手腳冰冷/怕冷體質", ja: "冷（ひ）え性（しょう）" },
+      { id: "sy-14", kind: "vocab", zh: "麻痺/發麻", ja: "しびれ", note: "動詞:手（て）がしびれる。" },
+      { id: "sy-15", kind: "vocab", zh: "眼睛疲勞", ja: "眼精疲労（がんせいひろう）" },
+      { id: "sy-16", kind: "vocab", zh: "坐骨神經痛", ja: "坐骨神経痛（ざこつしんけいつう）" },
+      { id: "sy-17", kind: "vocab", zh: "扭傷", ja: "捻挫（ねんざ）", note: "整骨院可以用健保處理嘅典型受傷。" },
+      { id: "sy-18", kind: "vocab", zh: "撞傷", ja: "打撲（だぼく）" },
+      { id: "sy-19", kind: "vocab", zh: "抽筋", ja: "足（あし）がつる", note: "「夜中（よなか）に足（あし）がつります」=半夜腳抽筋。" },
+      { id: "sy-20", kind: "vocab", zh: "疲勞積累", ja: "疲（つか）れがたまる" },
+      { id: "sy-21", kind: "vocab", zh: "失眠/瞓得唔好", ja: "眠（ねむ）りが浅（あさ）い", note: "「眠（ねむ）りが浅（あさ）い」=瞓得淺;「寝付（ねつ）きが悪（わる）い」=難入睡。" },
+      { id: "sy-22", kind: "vocab", zh: "自律神經失調", ja: "自律神経（じりつしんけい）の乱（みだ）れ" },
+      { id: "sy-23", kind: "vocab", zh: "O型腿", ja: "O脚（オーきゃく）" },
+      { id: "sy-24", kind: "vocab", zh: "可動範圍/活動幅度", ja: "可動域（かどういき）" }
+    ]
+  },
+  {
+    id: "seitai-feelings",
+    icon: "⚡",
+    title: "身體感覺擬聲擬態語",
+    subtitle: "ズキズキ、ピリピリ、ガチガチ⋯ 形容痛法同感覺",
+    cards: [
+      {
+        id: "fe-01",
+        kind: "text",
+        zh: "點解要識擬態語?",
+        ja: "",
+        note: "日本人形容身體感覺,好少講「刺痛」「鈍痛」呢類漢字詞,反而用擬態語(オノマトペ)。同師傅講「ズキズキします」比講「痛（いた）いです」準確好多,師傅一聽就知係咩類型嘅痛。\n\n基本句型:\n・〇〇がズキズキします(〇〇 + が + 擬態語 + します)\n・〇〇がガチガチです(形容狀態,用 です)\n・ズキッとしました(瞬間感覺,用「〜っと」+ した)"
+      },
+      { id: "fe-02", kind: "vocab", zh: "一跳一跳咁痛(搏動性痛,例如頭痛、傷口)", ja: "ズキズキ", note: "例:頭（あたま）がズキズキします。" },
+      { id: "fe-03", kind: "vocab", zh: "突然刺一下痛", ja: "ズキッ", note: "例:動（うご）かした時（とき）にズキッとします。" },
+      { id: "fe-04", kind: "vocab", zh: "突然「咔」一聲扭到(閃腰嗰下)", ja: "ギクッ", note: "例:腰（こし）がギクッとなりました。「ぎっくり腰（ごし）」個名就係嚟自呢個字。" },
+      { id: "fe-05", kind: "vocab", zh: "刺刺痺痺(神經性,輕微電流感)", ja: "ピリピリ", note: "例:指先（ゆびさき）がピリピリします。" },
+      { id: "fe-06", kind: "vocab", zh: "觸電咁痺(比ピリピリ強)", ja: "ビリビリ", note: "例:腕（うで）にビリビリ響（ひび）きます。" },
+      { id: "fe-07", kind: "vocab", zh: "麻麻痺痺/發熱咁麻", ja: "ジンジン", note: "例:足（あし）がジンジンします。" },
+      { id: "fe-08", kind: "vocab", zh: "針刺咁細細下痛", ja: "チクチク" },
+      { id: "fe-09", kind: "vocab", zh: "硬到好似石頭(肌肉好繃)", ja: "ガチガチ／カチカチ", note: "例:肩（かた）がガチガチです。" },
+      { id: "fe-10", kind: "vocab", zh: "腫脹、繃到漲晒", ja: "パンパン", note: "例:ふくらはぎがパンパンです。(行完一日路/水腫)" },
+      { id: "fe-11", kind: "vocab", zh: "撳落有一粒粒硬結", ja: "ゴリゴリ", note: "例:押（お）すとゴリゴリしています。" },
+      { id: "fe-12", kind: "vocab", zh: "關節啪啪聲", ja: "ポキポキ", note: "例:首（くび）を回（まわ）すとポキポキ鳴（な）ります。" },
+      { id: "fe-13", kind: "vocab", zh: "一陣陣擴散開嘅感覺(撳中穴位)", ja: "ジーン", note: "例:押（お）されるとジーンと響（ひび）きます。" },
+      { id: "fe-14", kind: "vocab", zh: "沉重、隱隱作痛(悶痛)", ja: "ズーン／ずっしり", note: "例:腰（こし）がズーンと重（おも）いです。" },
+      { id: "fe-15", kind: "vocab", zh: "慢慢地/漸漸(痛楚或改善)", ja: "じわじわ", note: "例:じわじわ痛（いた）くなってきました。" },
+      { id: "fe-16", kind: "vocab", zh: "繃緊/有拉扯感", ja: "張（は）っている／突（つ）っ張（ぱ）る", note: "例:太（ふと）ももの裏（うら）が突（つ）っ張（ぱ）る感（かん）じがします。" },
+      { id: "fe-17", kind: "vocab", zh: "又重又攰", ja: "重（おも）だるい", note: "整體院超常用。例:足（あし）が重（おも）だるいです。" },
+      { id: "fe-18", kind: "vocab", zh: "攰、乏力", ja: "だるい" },
+      { id: "fe-19", kind: "vocab", zh: "痛得來好舒服", ja: "痛気持（いたきも）ちいい", note: "撳得啱力時講,師傅會好開心。" },
+      { id: "fe-20", kind: "vocab", zh: "隱隱作痛/悶痛(漢字詞)", ja: "鈍痛（どんつう）" },
+      { id: "fe-21", kind: "vocab", zh: "怕癢/好癢", ja: "くすぐったい" },
+      { id: "fe-22", kind: "vocab", zh: "(做完)好爽、輕鬆晒", ja: "スッキリ", note: "例:すごくスッキリしました!" },
+      { id: "fe-23", kind: "vocab", zh: "(做完)暖笠笠", ja: "ポカポカ", note: "例:体（からだ）がポカポカしてきました。" },
+      { id: "fe-24", kind: "vocab", zh: "輕咗/鬆咗", ja: "軽（かる）くなった／楽（らく）になった", note: "「楽（らく）になりました」=舒服咗、冇咁辛苦。" }
+    ]
+  },
+  {
+    id: "seitai-describe",
+    icon: "🗣️",
+    title: "向師傅講自己狀況",
+    subtitle: "問診時講邊度、幾時開始、點樣痛",
+    cards: [
+      { id: "ds-01", kind: "sentence", zh: "膊頭一直好硬,連頸都繃住。", ja: "肩（かた）がずっと凝（こ）っていて、首（くび）まで張（は）っています。", romaji: "Kata ga zutto kotte ite, kubi made hatte imasu." },
+      { id: "ds-02", kind: "sentence", zh: "今朝起身頸轉唔到(好似落枕)。", ja: "朝（あさ）起（お）きたら首（くび）が回（まわ）らなくなりました。寝違（ねちが）えたみたいです。", romaji: "Asa okitara kubi ga mawaranaku narimashita. Nechigaeta mitai desu." },
+      { id: "ds-03", kind: "sentence", zh: "攞重嘢嗰陣,條腰「咔」一聲扭到。", ja: "重（おも）いものを持（も）った時（とき）に、腰（こし）がギクッとなりました。", romaji: "Omoi mono o motta toki ni, koshi ga gikutto narimashita." },
+      { id: "ds-04", kind: "sentence", zh: "向前彎腰就痛。", ja: "前（まえ）かがみになると腰（こし）が痛（いた）いです。", romaji: "Maekagami ni naru to koshi ga itai desu." },
+      { id: "ds-05", kind: "sentence", zh: "右手舉唔起。", ja: "右腕（みぎうで）が上（あ）がりません。", romaji: "Migiude ga agarimasen." },
+      { id: "ds-06", kind: "sentence", zh: "坐耐咗,由屁股到大腿後面會麻。", ja: "長時間（ちょうじかん）座（すわ）っていると、お尻（しり）から太（ふと）ももの裏（うら）がしびれます。", romaji: "Chōjikan suwatte iru to, oshiri kara futomomo no ura ga shibiremasu." },
+      { id: "ds-07", kind: "sentence", zh: "我成日對住電腦工作。", ja: "一日中（いちにちじゅう）パソコン作業（さぎょう）をしています。", romaji: "Ichinichijū pasokon sagyō o shite imasu." },
+      { id: "ds-08", kind: "sentence", zh: "眼睛深處好重,仲會頭痛。", ja: "目（め）の奥（おく）が重（おも）くて、頭痛（ずつう）もあります。", romaji: "Me no oku ga omokute, zutsū mo arimasu." },
+      { id: "ds-09", kind: "sentence", zh: "一到夜晚對腳就腫到漲晒。", ja: "夕方（ゆうがた）になると足（あし）がむくんでパンパンになります。", romaji: "Yūgata ni naru to ashi ga mukunde panpan ni narimasu." },
+      { id: "ds-10", kind: "sentence", zh: "大概兩個星期前開始。", ja: "2週間（にしゅうかん）くらい前（まえ）からです。", romaji: "Nishūkan kurai mae kara desu." },
+      { id: "ds-11", kind: "sentence", zh: "撳落去會痛。", ja: "押（お）すと痛（いた）いです。", romaji: "Osu to itai desu." },
+      { id: "ds-12", kind: "sentence", zh: "郁動嗰陣先痛。", ja: "動（うご）かした時（とき）だけ痛（いた）いです。", romaji: "Ugokashita toki dake itai desu." },
+      { id: "ds-13", kind: "sentence", zh: "唔郁都痛。", ja: "じっとしていても痛（いた）いです。", romaji: "Jitto shite ite mo itai desu." },
+      { id: "ds-14", kind: "sentence", zh: "右邊比左邊嚴重。", ja: "左（ひだり）より右（みぎ）の方（ほう）がひどいです。", romaji: "Hidari yori migi no hō ga hidoi desu." },
+      { id: "ds-15", kind: "sentence", zh: "痛到半夜醒。", ja: "夜（よる）、痛（いた）くて目（め）が覚（さ）めます。", romaji: "Yoru, itakute me ga samemasu." },
+      { id: "ds-16", kind: "sentence", zh: "落樓梯時膝頭痛。", ja: "階段（かいだん）を下（お）りる時（とき）に膝（ひざ）が痛（いた）いです。", romaji: "Kaidan o oriru toki ni hiza ga itai desu." },
+      { id: "ds-17", kind: "sentence", zh: "以前都傷過同一個位。", ja: "前（まえ）にも同（おな）じところを痛（いた）めたことがあります。", romaji: "Mae ni mo onaji tokoro o itameta koto ga arimasu." },
+      { id: "ds-18", kind: "sentence", zh: "落雨天/天氣差就會嚴重啲。", ja: "雨（あめ）の日（ひ）や天気（てんき）が悪（わる）い日（ひ）にひどくなります。", romaji: "Ame no hi ya tenki ga warui hi ni hidoku narimasu." },
+      { id: "ds-19", kind: "sentence", zh: "冇特別痛,但成個人好攰。", ja: "特（とく）に痛（いた）いところはないんですが、全体的（ぜんたいてき）に疲（つか）れがたまっています。", romaji: "Toku ni itai tokoro wa nai n desu ga, zentaiteki ni tsukare ga tamatte imasu." },
+      { id: "ds-20", kind: "sentence", zh: "呢度最痛。(指住個位)", ja: "ここが一番（いちばん）つらいです。", romaji: "Koko ga ichiban tsurai desu.", note: "「つらい」比「痛（いた）い」闊,痠、累、唔舒服都可以用,整體院好常聽到。" }
+    ]
+  },
+  {
+    id: "seitai-session",
+    icon: "💆",
+    title: "施術中對話",
+    subtitle: "師傅會問咩、你點答(力度/痛唔痛)",
+    cards: [
+      { id: "ss-01", kind: "qna", zh: "師傅問:今日邊度最唔舒服?", ja: "今日（きょう）はどこが一番（いちばん）つらいですか？", romaji: "Kyō wa doko ga ichiban tsurai desu ka?", note: "答法:\n肩（かた）と首（くび）が一番（いちばん）つらいです。\n(膊頭同頸最辛苦。)" },
+      { id: "ss-02", kind: "qna", zh: "師傅問:力度啱唔啱?", ja: "強（つよ）さは大丈夫（だいじょうぶ）ですか？", romaji: "Tsuyosa wa daijōbu desu ka?", note: "答法:\n・ちょうどいいです。(啱啱好)\n・もう少（すこ）し強（つよ）くお願（ねが）いします。(大力少少)\n・もう少（すこ）し弱（よわ）くしてください。(細力少少)" },
+      { id: "ss-03", kind: "qna", zh: "師傅問:痛唔痛?", ja: "痛（いた）くないですか？", romaji: "Itakunai desu ka?", note: "答法:\n・大丈夫（だいじょうぶ）です。(冇問題)\n・ちょっと痛（いた）いです。(有啲痛)\n・痛気持（いたきも）ちいいです。(痛得好舒服)\n注意:日本人問「痛くないですか」,答「大丈夫です」就係「唔痛/OK」。" },
+      { id: "ss-04", kind: "qna", zh: "師傅問:呢度係咪好硬?", ja: "ここ、張（は）っていますね。分（わ）かりますか？", romaji: "Koko, hatte imasu ne. Wakarimasu ka?", note: "答法:\nはい、そこです!(係,就係嗰度!)\nそこ、ジーンと響（ひび）きます。(嗰度撳落有種擴散開嘅感覺。)" },
+      { id: "ss-05", kind: "qna", zh: "師傅問:(做完)感覺點?", ja: "いかがですか？", romaji: "Ikaga desu ka?", note: "答法:\n・すごく軽（かる）くなりました。(輕鬆咗好多)\n・首（くび）が回（まわ）りやすくなりました。(頸容易轉咗)\n・まだ少（すこ）し腰（こし）が重（おも）いです。(腰仲有少少重)" },
+      { id: "ss-06", kind: "sentence", zh: "請唔好太大力。", ja: "あまり強（つよ）くしないでください。", romaji: "Amari tsuyoku shinaide kudasai." },
+      { id: "ss-07", kind: "sentence", zh: "有啲痛,可以輕手啲嗎?", ja: "少（すこ）し痛（いた）いので、優（やさ）しくしてもらえますか？", romaji: "Sukoshi itai node, yasashiku shite moraemasu ka?" },
+      { id: "ss-08", kind: "sentence", zh: "我唔太鍾意整骨嗰種「啪」一聲嘅手法。", ja: "ボキボキ鳴（な）らす施術（せじゅつ）は苦手（にがて）です。", romaji: "Bokiboki narasu sejutsu wa nigate desu.", note: "怕扳骨手法可以一開始就講,好多整體院有唔扳骨(ソフト整体（せいたい）)嘅選擇。" },
+      { id: "ss-09", kind: "sentence", zh: "可以集中做膊頭嗎?", ja: "肩（かた）を重点的（じゅうてんてき）にお願（ねが）いできますか？", romaji: "Kata o jūtenteki ni onegai dekimasu ka?" },
+      { id: "ss-10", kind: "sentence", zh: "就係嗰度!", ja: "そこです!", romaji: "Soko desu!" },
+      { id: "ss-11", kind: "sentence", zh: "有冇咩伸展可以喺屋企做?", ja: "家（いえ）でできるストレッチはありますか？", romaji: "Ie de dekiru sutorecchi wa arimasu ka?" },
+      { id: "ss-12", kind: "sentence", zh: "下次幾時嚟比較好?", ja: "次（つぎ）はいつ頃（ごろ）来（き）たらいいですか？", romaji: "Tsugi wa itsu goro kitara ii desu ka?" },
+      { id: "ss-13", kind: "sentence", zh: "今日可以沖涼/浸浴嗎?", ja: "今日（きょう）はお風呂（ふろ）に入（はい）っても大丈夫（だいじょうぶ）ですか？", romaji: "Kyō wa ofuro ni haitte mo daijōbu desu ka?" },
+      { id: "ss-14", kind: "sentence", zh: "多謝,輕鬆咗好多。", ja: "ありがとうございました。だいぶ楽（らく）になりました。", romaji: "Arigatō gozaimashita. Daibu raku ni narimashita." }
+    ]
+  }
+];
+
 // 未來加新主題:喺呢個陣列加一個 topic({id, icon, title, subtitle, levels})
 // 未來加新學科(例如其他語言):喺 SUBJECTS 加一個 subject({id, icon, title, subtitle, topics})
 const SUBJECTS = [
@@ -467,6 +656,13 @@ const SUBJECTS = [
         title: "職場敬語與商業日文",
         subtitle: "敬語動詞、職場常用句、對客vs對同事",
         levels: BUSINESS_KEIGO_LEVELS
+      },
+      {
+        id: "seitai",
+        icon: "💆",
+        title: "整骨・整體",
+        subtitle: "身體部位、症狀、痛法擬態語、問診用句",
+        levels: SEITAI_LEVELS
       }
     ]
   },
