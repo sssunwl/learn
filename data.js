@@ -351,6 +351,52 @@ const WEDDING_INTERPRETER_LEVELS = [
       { id: "rd-17", kind: "sentence", zh: "人數 80 位,包括新人。", en: "80 guests, including the bride and groom.", ja: "新郎新婦（しんろうしんぷ）を含（ふく）めて80名（はちじゅうめい）です。", romaji: "Shinrō shinpu o fukumete hachijū-mei desu." },
       { id: "rd-18", kind: "sentence", zh: "今日多謝大家,請慢慢行。", en: "Thank you all for coming today. Please take care on your way.", ja: "本日（ほんじつ）は誠（まこと）にありがとうございました。お気（き）をつけてお帰（かえ）りください。", romaji: "Honjitsu wa makoto ni arigatō gozaimashita. Oki o tsukete okaeri kudasai." }
     ]
+  },
+  {
+    id: "afterparty-terms",
+    icon: "🏖️",
+    title: "二次會用詞・中英日對照",
+    subtitle: "沙灘、仙女棒、遊戲、散場 + 現場常用句",
+    cards: [
+      { id: "at-v01", kind: "vocab", zh: "二次會負責人/搞手", en: "Party organizer", ja: "幹事（かんじ）" },
+      { id: "at-v02", kind: "vocab", zh: "參加費", en: "Party fee", ja: "会費（かいひ）", note: "日本二次會多數唔收人情,改收固定「会費」。" },
+      { id: "at-v03", kind: "vocab", zh: "遊戲", en: "Games", ja: "ゲーム" },
+      { id: "at-v04", kind: "vocab", zh: "獎品", en: "Prizes", ja: "景品（けいひん）" },
+      { id: "at-v05", kind: "vocab", zh: "賓果", en: "Bingo", ja: "ビンゴ" },
+      { id: "at-v06", kind: "vocab", zh: "咪/麥克風", en: "Microphone", ja: "マイク" },
+      { id: "at-v07", kind: "vocab", zh: "燈光", en: "Lighting", ja: "照明（しょうめい）" },
+      { id: "at-v08", kind: "vocab", zh: "飲品枱/吧枱", en: "Drink counter / Bar", ja: "ドリンクカウンター" },
+      { id: "at-v09", kind: "vocab", zh: "添飲/再嚟一杯", en: "Refill / Another drink", ja: "おかわり" },
+      { id: "at-v10", kind: "vocab", zh: "沙灘", en: "Sandy beach", ja: "砂浜（すなはま）" },
+      { id: "at-v11", kind: "vocab", zh: "海邊水線位", en: "Water's edge / Shoreline", ja: "波打（なみう）ち際（ぎわ）" },
+      { id: "at-v12", kind: "vocab", zh: "漲潮/退潮", en: "High tide / Low tide", ja: "満潮（まんちょう）／干潮（かんちょう）" },
+      { id: "at-v13", kind: "vocab", zh: "驅蚊噴霧", en: "Insect repellent", ja: "虫除（むしよ）け" },
+      { id: "at-v14", kind: "vocab", zh: "手電筒", en: "Flashlight / Torch", ja: "懐中電灯（かいちゅうでんとう）" },
+      { id: "at-v15", kind: "vocab", zh: "披肩/外套", en: "Something to wear over (shawl, jacket)", ja: "羽織（はお）るもの", note: "海邊夜晚凍,可以問「羽織（はお）るものはありますか？」。" },
+      { id: "at-v16", kind: "vocab", zh: "涼鞋/拖鞋", en: "Sandals", ja: "サンダル／ビーチサンダル" },
+      { id: "at-v17", kind: "vocab", zh: "毛巾", en: "Towel", ja: "タオル" },
+      { id: "at-v18", kind: "vocab", zh: "點火槍/打火機", en: "Lighter", ja: "ライター／チャッカマン", note: "「チャッカマン」本身係牌子名,但日本人都用嚟叫長嘴點火槍。" },
+      { id: "at-v19", kind: "vocab", zh: "用火要小心", en: "Handle fire with care", ja: "火（ひ）の取（と）り扱（あつか）い注意（ちゅうい）" },
+      { id: "at-v20", kind: "vocab", zh: "大合照", en: "Group photo", ja: "集合写真（しゅうごうしゃしん）" },
+      { id: "at-v21", kind: "vocab", zh: "自拍", en: "Selfie", ja: "自撮（じど）り" },
+      { id: "at-v22", kind: "vocab", zh: "手機電筒", en: "Phone flashlight", ja: "スマホのライト" },
+      { id: "at-v23", kind: "vocab", zh: "散場/完場", en: "End of the party", ja: "お開（ひら）き", note: "婚禮忌講「終（お）わる」,所以完場講「お開き」。" },
+      { id: "at-v24", kind: "vocab", zh: "收尾/壓軸", en: "Closing", ja: "締（し）め" },
+      { id: "at-v25", kind: "vocab", zh: "一齊拍手收尾", en: "Closing hand-clap", ja: "一本締（いっぽんじ）め", note: "「よーっ、パン!」一下拍手收尾,日本聚會常見。" },
+      { id: "at-v26", kind: "vocab", zh: "解散", en: "Dismissal / Everyone heads off", ja: "解散（かいさん）" },
+      { id: "at-v27", kind: "vocab", zh: "尾班車", en: "Last shuttle", ja: "最終便（さいしゅうびん）" },
+      { id: "at-v28", kind: "vocab", zh: "失物", en: "Lost item", ja: "落（お）とし物（もの）" },
+      { id: "at-01", kind: "sentence", zh: "二次會開始喇!", en: "The after party is starting!", ja: "二次会（にじかい）、スタートです！", romaji: "Nijikai, sutāto desu!" },
+      { id: "at-02", kind: "sentence", zh: "飲品喺吧枱,隨便攞。", en: "Drinks are at the counter. Help yourselves.", ja: "お飲（の）み物（もの）はカウンターにございます。ご自由（じゆう）にどうぞ。", romaji: "Onomimono wa kauntā ni gozaimasu. Gojiyū ni dōzo." },
+      { id: "at-03", kind: "sentence", zh: "唔好行太近水邊。", en: "Please don't go too close to the water.", ja: "波打（なみう）ち際（ぎわ）には近（ちか）づかないでください。", romaji: "Namiuchigiwa ni wa chikazukanaide kudasai." },
+      { id: "at-04", kind: "sentence", zh: "有冇驅蚊噴霧?", en: "Do you have any insect repellent?", ja: "虫除（むしよ）けはありますか？", romaji: "Mushiyoke wa arimasu ka?" },
+      { id: "at-05", kind: "sentence", zh: "暗,請用手機電筒照路。", en: "It's dark, please use your phone flashlight.", ja: "暗（くら）いので、スマホのライトで足元（あしもと）を照（て）らしてください。", romaji: "Kurai node, sumaho no raito de ashimoto o terashite kudasai." },
+      { id: "at-06", kind: "sentence", zh: "每人一枝仙女棒。", en: "One sparkler per person.", ja: "スパークラーはお一人（ひとり）一本（いっぽん）ずつどうぞ。", romaji: "Supākurā wa ohitori ippon zutsu dōzo." },
+      { id: "at-07", kind: "sentence", zh: "大家一齊影大合照!", en: "Let's take a group photo!", ja: "皆（みな）さんで集合写真（しゅうごうしゃしん）を撮（と）りましょう！", romaji: "Minasan de shūgō shashin o torimashō!" },
+      { id: "at-08", kind: "sentence", zh: "差唔多要完場喇。", en: "The party is coming to an end.", ja: "そろそろお開（ひら）きの時間（じかん）です。", romaji: "Sorosoro ohiraki no jikan desu." },
+      { id: "at-09", kind: "sentence", zh: "尾班巴士 11 點開。", en: "The last shuttle leaves at 11 p.m.", ja: "最終（さいしゅう）のシャトルバスは23時（にじゅうさんじ）発（はつ）です。", romaji: "Saishū no shatoru basu wa nijūsan-ji hatsu desu.", note: "時間係例子,以現場安排為準。" },
+      { id: "at-10", kind: "sentence", zh: "請記得帶齊隨身物品。", en: "Please make sure you have all your belongings.", ja: "お忘（わす）れ物（もの）のないよう、お気（き）をつけください。", romaji: "Owasuremono no nai yō, oki o tsuke kudasai." }
+    ]
   }
 ];
 
