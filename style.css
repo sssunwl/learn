@@ -438,3 +438,155 @@ footer.hint {
 [lang="th"] {
   font-family: "Noto Sans Thai", "Noto Sans TC", sans-serif;
 }
+
+/* ---- Topic 主頁:人體圖 + 十字連結記憶 ---- */
+.visual-section {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 16px 14px 14px;
+  margin-bottom: 18px;
+}
+
+.visual-section > h3,
+.levels-heading {
+  font-family: "Noto Serif TC", serif;
+  font-size: 1.05rem;
+  color: var(--rose-deep);
+  margin: 0 0 12px;
+}
+
+.levels-heading { margin: 26px 0 0; }
+
+.bm-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.seg {
+  display: inline-flex;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.seg button {
+  border: none;
+  background: var(--paper);
+  color: var(--ink-soft);
+  padding: 7px 16px;
+  font-family: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.seg button.active { background: var(--rose-deep); color: #fff; }
+
+.body-svg {
+  display: block;
+  width: 100%;
+  max-width: 480px;
+  margin: 8px auto 0;
+}
+
+.body-svg .fig { fill: #f1e4d6; stroke: #f1e4d6; stroke-linecap: round; stroke-linejoin: round; }
+.body-svg .fig ellipse,
+.body-svg .fig path,
+.body-svg .fig circle { stroke-width: 0; }
+.body-svg .fig-detail { fill: none; stroke: #d9c3ad; stroke-width: 2; stroke-linecap: round; }
+
+.bm-label { cursor: pointer; }
+.bm-hit { fill: transparent; }
+.bm-leader { stroke: var(--gold); stroke-width: 1; opacity: 0.7; }
+.bm-dot { fill: var(--rose-deep); stroke: #fff; stroke-width: 2; }
+.bm-ja { font-family: "Noto Sans JP", sans-serif; font-size: 17px; font-weight: 700; fill: var(--rose-deep); }
+.bm-kana { font-family: "Noto Sans JP", sans-serif; font-size: 11px; fill: var(--ink-soft); }
+.bm-zh { font-size: 11.5px; fill: var(--ink); }
+.bm-label.hidden-ans .bm-ja { fill: var(--gold); }
+.bm-label:hover .bm-dot { r: 7; }
+
+.bm-hint {
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  margin: 4px 0 0;
+}
+
+.cross-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.cross-meta { font-size: 0.82rem; color: var(--gold); }
+
+.cross-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-areas:
+    ". top ."
+    "left center right"
+    ". bottom .";
+  gap: 6px;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.cross-cell {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--ivory);
+  padding: 10px 4px;
+  min-height: 92px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  font-family: inherit;
+  color: var(--ink);
+  text-align: center;
+}
+
+.cross-cell.arm { cursor: pointer; }
+.cross-cell.top { grid-area: top; }
+.cross-cell.right { grid-area: right; }
+.cross-cell.bottom { grid-area: bottom; }
+.cross-cell.left { grid-area: left; }
+
+.cross-cell.center {
+  grid-area: center;
+  background: var(--rose-deep);
+  border-color: var(--rose-deep);
+  color: #fff;
+}
+
+.cross-cell .cc { font-family: "Noto Sans JP", sans-serif; font-size: 2.2rem; font-weight: 700; line-height: 1.1; }
+.cross-cell .ct { font-size: 0.7rem; opacity: 0.85; }
+.cross-cell .cw { font-family: "Noto Sans JP", sans-serif; font-size: 1.15rem; font-weight: 700; line-height: 1.3; word-break: keep-all; }
+.cross-cell .cr { font-family: "Noto Sans JP", sans-serif; font-size: 0.75rem; color: var(--ink-soft); }
+.cross-cell .cz { font-size: 0.72rem; color: var(--ink-soft); }
+.cross-cell mark { background: none; color: var(--rose-deep); text-decoration: underline 2px var(--gold); text-underline-offset: 3px; }
+.cross-cell.hidden-ans .cw { color: var(--gold); }
+
+.cross-story {
+  margin-top: 14px;
+  background: var(--ivory);
+  border-radius: 14px;
+  padding: 12px 14px;
+}
+
+.story-ja { font-family: "Noto Sans JP", sans-serif; font-size: 1rem; color: var(--rose-deep); line-height: 1.8; }
+.story-zh { font-size: 0.85rem; color: var(--ink-soft); margin-top: 4px; }
+.story-tip { font-size: 0.8rem; color: var(--ink); margin-top: 8px; border-top: 1px dashed var(--line); padding-top: 8px; }
+.story-actions { display: flex; gap: 10px; margin-top: 10px; }
+.story-actions .btn:not(.speak) { flex: 1; }
+
+/* 英文對照(可選 en 欄位) */
+.card-en { font-size: 0.9rem; color: var(--gold); font-style: italic; margin-top: -6px; }
+.summary-en { font-size: 0.82rem; color: var(--gold); font-style: italic; }

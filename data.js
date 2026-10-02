@@ -193,6 +193,70 @@ const WEDDING_INTERPRETER_LEVELS = [
       { id: "log-09", kind: "sentence", zh: "有沒有忘記帶東西?", ja: "忘（わす）れ物（もの）はございませんか？", romaji: "Wasuremono wa gozaimasen ka?" },
       { id: "log-10", kind: "sentence", zh: "我會先分享緊急聯絡方式。", ja: "緊急（きんきゅう）連絡先（れんらくさき）を共有（きょうゆう）しておきます。", romaji: "Kinkyū renrakusaki o kyōyū shite okimasu." }
     ]
+  },
+  {
+    id: "rundown",
+    icon: "🎉",
+    title: "宴會 Rundown・After Party",
+    subtitle: "中英日對照:流程表、MC/音響 cue、換衫、送客、二次會",
+    cards: [
+      { id: "rd-v01", kind: "vocab", zh: "流程表", en: "Rundown / Run of show", ja: "進行表（しんこうひょう）" },
+      { id: "rd-v02", kind: "vocab", zh: "宴會廳", en: "Banquet hall", ja: "宴会場（えんかいじょう）／バンケット" },
+      { id: "rd-v03", kind: "vocab", zh: "司儀/MC", en: "MC", ja: "司会者（しかいしゃ）／MC" },
+      { id: "rd-v04", kind: "vocab", zh: "音響/控制員", en: "Operator / Sound & AV operator", ja: "音響（おんきょう）スタッフ／オペレーター" },
+      { id: "rd-v05", kind: "vocab", zh: "佈置組", en: "Decoration team / Setup team", ja: "装飾（そうしょく）チーム／設営（せつえい）スタッフ" },
+      { id: "rd-v06", kind: "vocab", zh: "化妝師", en: "Makeup artist", ja: "ヘアメイク(さん)" },
+      { id: "rd-v07", kind: "vocab", zh: "給信號/打 cue", en: "Give a cue / Signal", ja: "キューを出（だ）す", note: "日本活動業界都講「キュー」,例:「MCからキューを出（だ）します」。" },
+      { id: "rd-v08", kind: "vocab", zh: "嘉賓簽到", en: "Guest sign-in / Registration", ja: "受付（うけつけ）" },
+      { id: "rd-v09", kind: "vocab", zh: "補妝/執妝", en: "Makeup touch-up", ja: "ヘアメイク直（なお）し" },
+      { id: "rd-v10", kind: "vocab", zh: "換衫/換造型", en: "Outfit change", ja: "お色直（いろなお）し", note: "婚禮專用詞,新人中途換禮服就叫お色直し。" },
+      { id: "rd-v11", kind: "vocab", zh: "第三套禮服", en: "3rd dress", ja: "3着目（さんちゃくめ）のドレス" },
+      { id: "rd-v12", kind: "vocab", zh: "便服/輕便服裝", en: "Casual outfit", ja: "カジュアルな服装（ふくそう）／私服（しふく）" },
+      { id: "rd-v13", kind: "vocab", zh: "新人", en: "Bride and groom / The couple", ja: "新郎新婦（しんろうしんぷ）／お二人（ふたり）" },
+      { id: "rd-v14", kind: "vocab", zh: "新人進場", en: "March-in / Grand entrance", ja: "新郎新婦（しんろうしんぷ）入場（にゅうじょう）" },
+      { id: "rd-v15", kind: "vocab", zh: "進場歌", en: "March-in song", ja: "入場曲（にゅうじょうきょく）" },
+      { id: "rd-v16", kind: "vocab", zh: "歡迎致辭", en: "Welcome speech", ja: "ウェルカムスピーチ" },
+      { id: "rd-v17", kind: "vocab", zh: "祝酒/乾杯", en: "Toast / Toasting", ja: "乾杯（かんぱい）" },
+      { id: "rd-v18", kind: "vocab", zh: "開始上菜", en: "Start to serve dishes", ja: "お料理（りょうり）のサーブ開始（かいし）" },
+      { id: "rd-v19", kind: "vocab", zh: "播片/影片", en: "Video / Play the video", ja: "映像（えいぞう）／ムービーを流（なが）す" },
+      { id: "rd-v20", kind: "vocab", zh: "落螢幕/收螢幕", en: "Drop down / Scroll back the screen", ja: "スクリーンを下（お）ろす／上（あ）げる" },
+      { id: "rd-v21", kind: "vocab", zh: "熄音樂/開音樂", en: "Music off / Music on", ja: "BGMを止（と）める／流（なが）す" },
+      { id: "rd-v22", kind: "vocab", zh: "自由拍照時間", en: "Free flow photo taking", ja: "フォトタイム" },
+      { id: "rd-v23", kind: "vocab", zh: "伴娘/兄弟", en: "Bridesmaids / Groomsmen", ja: "ブライズメイド／アッシャー", note: "日本婚禮多數叫兄弟做「アッシャー」(usher),「グルームズマン」都聽得明。" },
+      { id: "rd-v24", kind: "vocab", zh: "朋友致辭", en: "Friend's speech", ja: "友人（ゆうじん）スピーチ" },
+      { id: "rd-v25", kind: "vocab", zh: "遊戲/表演環節", en: "Games / Entertainment", ja: "余興（よきょう）／ゲーム" },
+      { id: "rd-v26", kind: "vocab", zh: "問答遊戲", en: "Quiz / Q&A game", ja: "クイズ" },
+      { id: "rd-v27", kind: "vocab", zh: "手信", en: "Souvenir", ja: "お土産（みやげ）" },
+      { id: "rd-v28", kind: "vocab", zh: "盲盒", en: "Blind box", ja: "ブラインドボックス", note: "日本人未必個個識,可以補一句「中身（なかみ）が分（わ）からない箱（はこ）」(唔知入面係咩嘅盒)。" },
+      { id: "rd-v29", kind: "vocab", zh: "逐枱敬酒", en: "Toasting at each table / Table rounds", ja: "テーブルラウンド" },
+      { id: "rd-v30", kind: "vocab", zh: "送客", en: "Send off guests", ja: "お見送（みおく）り" },
+      { id: "rd-v31", kind: "vocab", zh: "穿梭巴士", en: "Shuttle bus", ja: "シャトルバス／送迎（そうげい）バス" },
+      { id: "rd-v32", kind: "vocab", zh: "二次會/After Party", en: "After party", ja: "二次会（にじかい）／アフターパーティー" },
+      { id: "rd-v33", kind: "vocab", zh: "首支舞", en: "First dance", ja: "ファーストダンス" },
+      { id: "rd-v34", kind: "vocab", zh: "仙女棒拍攝", en: "Sparkler shooting", ja: "スパークラー撮影（さつえい）" },
+      { id: "rd-v35", kind: "vocab", zh: "謝辭/答謝致辭", en: "Thank-you speech", ja: "謝辞（しゃじ）／お礼（れい）の挨拶（あいさつ）" },
+      { id: "rd-v36", kind: "vocab", zh: "帶客離場", en: "Escort guests out", ja: "ゲストのお見送（みおく）りとご案内（あんない）" },
+      { id: "rd-v37", kind: "vocab", zh: "時間延誤/超時", en: "Running behind schedule", ja: "押（お）している", note: "「時間（じかん）が5分（ごふん）押（お）しています」=遲咗五分鐘。相反:「巻（ま）く」=趕返時間。" },
+      { id: "rd-v38", kind: "vocab", zh: "趕返時間/加快", en: "Speed up / Catch up on time", ja: "巻（ま）く", note: "「少（すこ）し巻（ま）きでお願（ねが）いします」=麻煩快少少。" },
+      { id: "rd-01", kind: "sentence", zh: "新人進場。", en: "The bride and groom are making their entrance.", ja: "新郎新婦（しんろうしんぷ）のご入場（にゅうじょう）です。", romaji: "Shinrō shinpu no go-nyūjō desu." },
+      { id: "rd-02", kind: "sentence", zh: "請各位起身,拎起酒杯。", en: "Please stand and raise your glasses.", ja: "皆様（みなさま）、ご起立（きりつ）いただき、グラスをお持（も）ちください。", romaji: "Minasama, go-kiritsu itadaki, gurasu o omochi kudasai." },
+      { id: "rd-03", kind: "sentence", zh: "(司儀叫)乾杯後開音樂。", en: "Music on after the MC says \"cheers!\"", ja: "司会（しかい）の「乾杯（かんぱい）」の合図（あいず）で、BGMをお願（ねが）いします。", romaji: "Shikai no \"kanpai\" no aizu de, BGM o onegaishimasu." },
+      { id: "rd-04", kind: "sentence", zh: "請熄音樂。", en: "Music off, please.", ja: "BGMを止（と）めてください。", romaji: "BGM o tomete kudasai." },
+      { id: "rd-05", kind: "sentence", zh: "請落螢幕。", en: "Please drop down the screen.", ja: "スクリーンを下（お）ろしてください。", romaji: "Sukurīn o oroshite kudasai." },
+      { id: "rd-06", kind: "sentence", zh: "司儀簡單介紹後,請播片。", en: "After the MC's brief intro, please play the video.", ja: "司会（しかい）の紹介（しょうかい）の後（あと）、映像（えいぞう）を流（なが）してください。", romaji: "Shikai no shōkai no ato, eizō o nagashite kudasai." },
+      { id: "rd-07", kind: "sentence", zh: "片播完請收返螢幕。", en: "Please scroll the screen back up after the video.", ja: "映像（えいぞう）が終（お）わったら、スクリーンを上（あ）げてください。", romaji: "Eizō ga owattara, sukurīn o agete kudasai." },
+      { id: "rd-08", kind: "sentence", zh: "請各位出嚟前面一齊影相。", en: "Everyone, please come up to the front for photos.", ja: "写真撮影（しゃしんさつえい）をしますので、皆様（みなさま）前（まえ）へお越（こ）しください。", romaji: "Shashin satsuei o shimasu node, minasama mae e okoshi kudasai." },
+      { id: "rd-09", kind: "sentence", zh: "而家有少少遲,大約遲咗五分鐘。", en: "We're running about 5 minutes behind.", ja: "現在（げんざい）、5分（ごふん）ほど押（お）しています。", romaji: "Genzai, gofun hodo oshite imasu." },
+      { id: "rd-10", kind: "sentence", zh: "時間準時。", en: "We're on schedule.", ja: "時間通（じかんどお）りです。", romaji: "Jikan dōri desu." },
+      { id: "rd-11", kind: "sentence", zh: "新人換衫後幾點返嚟?", en: "What time will the couple be back after the outfit change?", ja: "お色直（いろなお）しの後（あと）、お二人（ふたり）は何時（なんじ）に戻（もど）られますか？", romaji: "Oironaoshi no ato, ofutari wa nanji ni modoraremasu ka?" },
+      { id: "rd-12", kind: "sentence", zh: "請各位盡快上穿梭巴士。", en: "Please get on the shuttle bus as soon as possible.", ja: "シャトルバスにお早（はや）めにご乗車（じょうしゃ）ください。", romaji: "Shatoru basu ni ohayame ni go-jōsha kudasai." },
+      { id: "rd-13", kind: "sentence", zh: "開始送客時,請通知佈置組同二次會司儀。", en: "Let the setup team and the after-party MC know when sending off guests.", ja: "お見送（みおく）りが始（はじ）まったら、装飾（そうしょく）チームと二次会（にじかい）の司会者（しかいしゃ）に連絡（れんらく）してください。", romaji: "Omiokuri ga hajimattara, sōshoku chīmu to nijikai no shikaisha ni renraku shite kudasai." },
+      { id: "rd-14", kind: "sentence", zh: "新人會坐車去沙灘,大約 30 分鐘。", en: "The couple will drive to the beach, about 30 minutes.", ja: "お二人（ふたり）は車（くるま）でビーチへ移動（いどう）します。30分（さんじゅっぷん）ほどかかります。", romaji: "Ofutari wa kuruma de bīchi e idō shimasu. Sanjuppun hodo kakarimasu." },
+      { id: "rd-15", kind: "sentence", zh: "仙女棒拍攝由 9 點到 9 點半。", en: "Sparkler shooting is from 9:00 to 9:30.", ja: "スパークラー撮影（さつえい）は21時（にじゅういちじ）から21時半（にじゅういちじはん）までです。", romaji: "Supākurā satsuei wa nijūichi-ji kara nijūichi-ji han made desu." },
+      { id: "rd-16", kind: "sentence", zh: "時間只供參考,會場可能會調整。", en: "Times are for reference only and may be adjusted by the venue.", ja: "時間（じかん）は目安（めやす）です。会場（かいじょう）の都合（つごう）で調整（ちょうせい）される場合（ばあい）があります。", romaji: "Jikan wa meyasu desu. Kaijō no tsugō de chōsei sareru baai ga arimasu." },
+      { id: "rd-17", kind: "sentence", zh: "人數 80 位,包括新人。", en: "80 guests, including the bride and groom.", ja: "新郎新婦（しんろうしんぷ）を含（ふく）めて80名（はちじゅうめい）です。", romaji: "Shinrō shinpu o fukumete hachijū-mei desu." },
+      { id: "rd-18", kind: "sentence", zh: "今日多謝大家,請慢慢行。", en: "Thank you all for coming today. Please take care on your way.", ja: "本日（ほんじつ）は誠（まこと）にありがとうございました。お気（き）をつけてお帰（かえ）りください。", romaji: "Honjitsu wa makoto ni arigatō gozaimashita. Oki o tsukete okaeri kudasai." }
+    ]
   }
 ];
 
@@ -494,7 +558,12 @@ const SEITAI_LEVELS = [
       { id: "bd-22", kind: "vocab", zh: "手踭/手肘", ja: "肘（ひじ）" },
       { id: "bd-23", kind: "vocab", zh: "手腕", ja: "手首（てくび）" },
       { id: "bd-24", kind: "vocab", zh: "右邊/左邊/兩邊", ja: "右側（みぎがわ）／左側（ひだりがわ）／両方（りょうほう）" },
-      { id: "bd-25", kind: "vocab", zh: "(身體)深處/裡面", ja: "奥（おく）" }
+      { id: "bd-25", kind: "vocab", zh: "(身體)深處/裡面", ja: "奥（おく）" },
+      { id: "bd-26", kind: "vocab", zh: "頭", ja: "頭（あたま）" },
+      { id: "bd-27", kind: "vocab", zh: "胸口", ja: "胸（むね）" },
+      { id: "bd-28", kind: "vocab", zh: "肚", ja: "お腹（なか）" },
+      { id: "bd-29", kind: "vocab", zh: "小腿前側", ja: "すね" },
+      { id: "bd-30", kind: "vocab", zh: "後頸", ja: "首筋（くびすじ）" }
     ]
   },
   {
@@ -616,6 +685,235 @@ const SEITAI_LEVELS = [
       { id: "ss-13", kind: "sentence", zh: "今日可以沖涼/浸浴嗎?", ja: "今日（きょう）はお風呂（ふろ）に入（はい）っても大丈夫（だいじょうぶ）ですか？", romaji: "Kyō wa ofuro ni haitte mo daijōbu desu ka?" },
       { id: "ss-14", kind: "sentence", zh: "多謝,輕鬆咗好多。", ja: "ありがとうございました。だいぶ楽（らく）になりました。", romaji: "Arigatō gozaimashita. Daibu raku ni narimashita." }
     ]
+  },
+  {
+    id: "seitai-massage",
+    icon: "🧴",
+    title: "按摩・放鬆店",
+    subtitle: "揀療程、指定部位、怕痛怕癢、做完之後",
+    cards: [
+      { id: "ms-v01", kind: "vocab", zh: "揉/按摩(動作)", ja: "揉（も）む", note: "「もっと揉（も）んでほしい」=想再揉多啲。" },
+      { id: "ms-v02", kind: "vocab", zh: "撳/按", ja: "押（お）す" },
+      { id: "ms-v03", kind: "vocab", zh: "放鬆(繃緊嘅肌肉)", ja: "ほぐす", note: "「コリをほぐす」=鬆開硬咗嘅肌肉,按摩店最常見嘅講法。" },
+      { id: "ms-v04", kind: "vocab", zh: "按摩後反彈痠痛", ja: "揉（も）み返（かえ）し", note: "大力按完第二日反而更痛,就叫揉み返し。" },
+      { id: "ms-v05", kind: "vocab", zh: "指壓", ja: "指圧（しあつ）" },
+      { id: "ms-v06", kind: "vocab", zh: "腳底按摩", ja: "足（あし）つぼ" },
+      { id: "ms-v07", kind: "vocab", zh: "穴位", ja: "ツボ" },
+      { id: "ms-v08", kind: "vocab", zh: "加鐘/延長", ja: "延長（えんちょう）" },
+      { id: "ms-v09", kind: "vocab", zh: "指定師傅", ja: "指名（しめい）" },
+      { id: "ms-v10", kind: "vocab", zh: "套票/回數券", ja: "回数券（かいすうけん）" },
+      { id: "ms-01", kind: "sentence", zh: "我要 60 分鐘嘅療程。", ja: "60分（ろくじっぷん）のコースでお願（ねが）いします。", romaji: "Rokujippun no kōsu de onegaishimasu." },
+      { id: "ms-02", kind: "sentence", zh: "全身同肩頸為主嘅療程,你推薦邊個?", ja: "全身（ぜんしん）コースと肩（かた）・首（くび）中心（ちゅうしん）のコース、どちらがおすすめですか？", romaji: "Zenshin kōsu to kata kubi chūshin no kōsu, dochira ga osusume desu ka?" },
+      { id: "ms-03", kind: "sentence", zh: "唔使用油。", ja: "オイルなしでお願（ねが）いします。", romaji: "Oiru nashi de onegaishimasu." },
+      { id: "ms-04", kind: "sentence", zh: "我皮膚敏感,未必啱用油。", ja: "肌（はだ）が弱（よわ）いので、オイルが合（あ）わないかもしれません。", romaji: "Hada ga yowai node, oiru ga awanai kamo shiremasen." },
+      { id: "ms-05", kind: "sentence", zh: "可以加埋腳底按摩嗎?", ja: "足（あし）つぼも追加（ついか）できますか？", romaji: "Ashitsubo mo tsuika dekimasu ka?" },
+      { id: "ms-06", kind: "sentence", zh: "我條腰傷過,請唔好大力撳。", ja: "腰（こし）を痛（いた）めているので、強（つよ）く押（お）さないでください。", romaji: "Koshi o itamete iru node, tsuyoku osanaide kudasai." },
+      { id: "ms-07", kind: "sentence", zh: "頸請輕手啲。", ja: "首（くび）は軽（かる）めでお願（ねが）いします。", romaji: "Kubi wa karume de onegaishimasu." },
+      { id: "ms-08", kind: "sentence", zh: "嗰度可以做耐啲嗎?", ja: "そこをもう少（すこ）し長（なが）めにお願（ねが）いできますか？", romaji: "Soko o mō sukoshi nagame ni onegai dekimasu ka?" },
+      { id: "ms-09", kind: "sentence", zh: "我好怕癢,嗰度可以跳過嗎?", ja: "くすぐったいので、そこは避（さ）けてもらえますか？", romaji: "Kusuguttai node, soko wa sakete moraemasu ka?" },
+      { id: "ms-10", kind: "sentence", zh: "我容易按完反彈痛,請輕力啲。", ja: "揉（も）み返（かえ）しが出（で）やすいので、優（やさ）しめでお願（ねが）いします。", romaji: "Momikaeshi ga deyasui node, yasashime de onegaishimasu." },
+      { id: "ms-11", kind: "sentence", zh: "有啲凍,可以幫我蓋條毛巾嗎?", ja: "少（すこ）し寒（さむ）いので、タオルをかけてもらえますか？", romaji: "Sukoshi samui node, taoru o kakete moraemasu ka?" },
+      { id: "ms-12", kind: "sentence", zh: "趴著塊面有啲辛苦。(面托位置唔啱)", ja: "うつ伏（ぶ）せだと顔（かお）が少（すこ）し苦（くる）しいです。", romaji: "Utsubuse da to kao ga sukoshi kurushii desu." },
+      { id: "ms-13", kind: "sentence", zh: "瞓著咗唔好意思。", ja: "寝（ね）てしまったらすみません。", romaji: "Nete shimattara sumimasen." },
+      { id: "ms-14", kind: "sentence", zh: "我可以去一去洗手間嗎?", ja: "お手洗（てあら）いに行（い）ってもいいですか？", romaji: "Otearai ni itte mo ii desu ka?" },
+      { id: "ms-15", kind: "sentence", zh: "可以加鐘嗎?", ja: "延長（えんちょう）はできますか？", romaji: "Enchō wa dekimasu ka?" },
+      { id: "ms-16", kind: "sentence", zh: "我想要上次嗰位師傅。", ja: "前回（ぜんかい）と同（おな）じ方（かた）を指名（しめい）できますか？", romaji: "Zenkai to onaji kata o shimei dekimasu ka?" },
+      { id: "ms-17", kind: "sentence", zh: "有冇套票?", ja: "回数券（かいすうけん）はありますか？", romaji: "Kaisūken wa arimasu ka?" },
+      { id: "ms-18", kind: "sentence", zh: "做完要多飲水嗎?", ja: "終（お）わった後（あと）は、お水（みず）を飲（の）んだ方（ほう）がいいですか？", romaji: "Owatta ato wa, omizu o nonda hō ga ii desu ka?" },
+      { id: "ms-19", kind: "sentence", zh: "太舒服,瞓著咗。", ja: "気持（きも）ちよすぎて寝（ね）ちゃいました。", romaji: "Kimochi yosugite nechaimashita." },
+      { id: "ms-20", kind: "sentence", zh: "成個人鬆晒,好舒服。", ja: "体（からだ）中（じゅう）ほぐれて、すごく気持（きも）ちよかったです。", romaji: "Karadajū hogurete, sugoku kimochi yokatta desu." }
+    ]
+  }
+];
+
+// 人體圖:topic 主頁顯示嘅可點擊部位圖(app.js 嘅 renderBodyMap)
+// x/y 係 SVG viewBox(420×520)入面嘅點,side 決定標籤擺左定右
+const SEITAI_BODY_MAP = {
+  front: [
+    { x: 210, y: 36, side: "left", ja: "頭", kana: "あたま", zh: "頭" },
+    { x: 186, y: 58, side: "left", ja: "こめかみ", kana: "", zh: "太陽穴" },
+    { x: 210, y: 94, side: "right", ja: "顎", kana: "あご", zh: "下巴" },
+    { x: 204, y: 112, side: "left", ja: "首", kana: "くび", zh: "頸" },
+    { x: 168, y: 128, side: "left", ja: "肩", kana: "かた", zh: "膊頭" },
+    { x: 232, y: 160, side: "right", ja: "胸", kana: "むね", zh: "胸口" },
+    { x: 148, y: 172, side: "left", ja: "腕", kana: "うで", zh: "手臂" },
+    { x: 140, y: 205, side: "left", ja: "肘", kana: "ひじ", zh: "手肘" },
+    { x: 210, y: 228, side: "right", ja: "お腹", kana: "おなか", zh: "肚" },
+    { x: 131, y: 282, side: "left", ja: "手首", kana: "てくび", zh: "手腕" },
+    { x: 192, y: 298, side: "left", ja: "股関節", kana: "こかんせつ", zh: "髖關節" },
+    { x: 238, y: 350, side: "right", ja: "太もも", kana: "ふともも", zh: "大腿" },
+    { x: 240, y: 400, side: "right", ja: "膝", kana: "ひざ", zh: "膝頭" },
+    { x: 241, y: 440, side: "right", ja: "すね", kana: "", zh: "小腿前側" },
+    { x: 242, y: 478, side: "right", ja: "足首", kana: "あしくび", zh: "腳踝" }
+  ],
+  back: [
+    { x: 210, y: 46, side: "left", ja: "後頭部", kana: "こうとうぶ", zh: "後腦" },
+    { x: 210, y: 120, side: "right", ja: "首の付け根", kana: "くびのつけね", zh: "頸根" },
+    { x: 188, y: 162, side: "left", ja: "肩甲骨", kana: "けんこうこつ", zh: "肩胛骨" },
+    { x: 144, y: 172, side: "left", ja: "二の腕", kana: "にのうで", zh: "上臂後側" },
+    { x: 210, y: 192, side: "right", ja: "背骨", kana: "せぼね", zh: "脊骨" },
+    { x: 238, y: 214, side: "right", ja: "背中", kana: "せなか", zh: "背脊" },
+    { x: 180, y: 252, side: "left", ja: "腰", kana: "こし", zh: "腰" },
+    { x: 196, y: 292, side: "left", ja: "骨盤", kana: "こつばん", zh: "骨盆" },
+    { x: 232, y: 304, side: "right", ja: "お尻", kana: "おしり", zh: "屁股" },
+    { x: 238, y: 352, side: "right", ja: "太ももの裏", kana: "ふとももの うら", zh: "大腿後側" },
+    { x: 240, y: 400, side: "right", ja: "膝の裏", kana: "ひざのうら", zh: "膝後" },
+    { x: 180, y: 432, side: "left", ja: "ふくらはぎ", kana: "", zh: "小腿肚" },
+    { x: 246, y: 496, side: "right", ja: "足の裏", kana: "あしのうら", zh: "腳底" }
+  ]
+};
+
+// 十字連結記憶:中間一個共用嘅字(type "字")或者共用開頭音(type "音"),四邊各一個詞,
+// story 用一句將四個詞串埋,靠連結記住。topic 主頁每日輪一組(app.js 嘅 renderCross)
+const SEITAI_CROSSES = [
+  {
+    center: "こ", type: "音",
+    words: [
+      { w: "腰", r: "こし", zh: "腰" },
+      { w: "骨盤", r: "こつばん", zh: "骨盆" },
+      { w: "凝る", r: "こる", zh: "(肌肉)硬" },
+      { w: "股関節", r: "こかんせつ", zh: "髖關節" }
+    ],
+    story: "腰（こし）が凝（こ）って、骨盤（こつばん）と股関節（こかんせつ）まで固（かた）い。",
+    storyZh: "腰好硬,連骨盆同髖關節都硬埋。"
+  },
+  {
+    center: "肩", type: "字",
+    words: [
+      { w: "肩こり", r: "かたこり", zh: "肩頸痠痛" },
+      { w: "肩甲骨", r: "けんこうこつ", zh: "肩胛骨" },
+      { w: "四十肩", r: "しじゅうかた", zh: "肩周炎" },
+      { w: "なで肩", r: "なでがた", zh: "溜肩/膊頭斜" }
+    ],
+    story: "なで肩（がた）で肩（かた）こりがひどく、四十肩（しじゅうかた）で肩甲骨（けんこうこつ）も動（うご）かない。",
+    storyZh: "膊頭斜、肩頸又痛,加埋肩周炎,連肩胛骨都郁唔到。",
+    tip: "同一個「肩」有兩個讀法:單獨/和語讀「かた」,漢字詞入面讀「けん」。「なで肩」連讀變「がた」。"
+  },
+  {
+    center: "か", type: "音",
+    words: [
+      { w: "体", r: "からだ", zh: "身體" },
+      { w: "硬い", r: "かたい", zh: "硬" },
+      { w: "肩", r: "かた", zh: "膊頭" },
+      { w: "可動域", r: "かどういき", zh: "活動幅度" }
+    ],
+    story: "体（からだ）が硬（かた）くて、肩（かた）の可動域（かどういき）が狭（せま）い。",
+    storyZh: "身體好硬,膊頭嘅活動幅度好窄。"
+  },
+  {
+    center: "骨", type: "字",
+    words: [
+      { w: "整骨院", r: "せいこついん", zh: "整骨院" },
+      { w: "骨盤", r: "こつばん", zh: "骨盆" },
+      { w: "背骨", r: "せぼね", zh: "脊骨" },
+      { w: "骨折", r: "こっせつ", zh: "骨折" }
+    ],
+    story: "整骨院（せいこついん）で骨盤（こつばん）と背骨（せぼね）を診（み）てもらった。骨折（こっせつ）じゃなくてよかった。",
+    storyZh: "喺整骨院睇咗骨盆同脊骨,好彩唔係骨折。",
+    tip: "「骨」漢字詞讀「こつ」,詞尾/和語讀「ほね」,「背骨」連讀變「ぼね」。"
+  },
+  {
+    center: "せ", type: "音",
+    words: [
+      { w: "整体", r: "せいたい", zh: "整體" },
+      { w: "施術", r: "せじゅつ", zh: "施術" },
+      { w: "背中", r: "せなか", zh: "背脊" },
+      { w: "背骨", r: "せぼね", zh: "脊骨" }
+    ],
+    story: "整体（せいたい）の施術（せじゅつ）で、背中（せなか）と背骨（せぼね）を伸（の）ばしてもらった。",
+    storyZh: "喺整體做施術,幫我拉鬆咗背脊同脊骨。"
+  },
+  {
+    center: "首", type: "字",
+    words: [
+      { w: "首", r: "くび", zh: "頸" },
+      { w: "手首", r: "てくび", zh: "手腕" },
+      { w: "足首", r: "あしくび", zh: "腳踝" },
+      { w: "首筋", r: "くびすじ", zh: "後頸" }
+    ],
+    story: "パソコンで手首（てくび）、立（た）ち仕事（しごと）で足首（あしくび）、スマホで首筋（くびすじ）がつらい。",
+    storyZh: "用電腦搞到手腕痛,企一日搞到腳踝痛,睇手機搞到後頸痛。",
+    tip: "日文「首」係頸,唔係頭!身體上「幼咗一截」嘅位都叫「首」:手首、足首。"
+  },
+  {
+    center: "ひ", type: "音",
+    words: [
+      { w: "膝", r: "ひざ", zh: "膝頭" },
+      { w: "肘", r: "ひじ", zh: "手肘" },
+      { w: "冷え", r: "ひえ", zh: "寒冷/手腳冰" },
+      { w: "響く", r: "ひびく", zh: "(痛)傳過去" }
+    ],
+    story: "冷（ひ）えると、膝（ひざ）と肘（ひじ）にズーンと響（ひび）く。",
+    storyZh: "一凍,膝頭同手肘就有種悶痛傳過嚟。",
+    tip: "ひざ(膝)同ひじ(肘)淨係差一個音,放埋一齊記就唔會撈亂。"
+  },
+  {
+    center: "腰", type: "字",
+    words: [
+      { w: "腰痛", r: "ようつう", zh: "腰痛" },
+      { w: "ぎっくり腰", r: "ぎっくりごし", zh: "閃到腰" },
+      { w: "反り腰", r: "そりごし", zh: "骨盆前傾" },
+      { w: "腰回り", r: "こしまわり", zh: "腰圍一帶" }
+    ],
+    story: "反（そ）り腰（ごし）のせいで腰痛（ようつう）が続（つづ）き、ついにぎっくり腰（ごし）。腰回（こしまわ）りをほぐしてもらった。",
+    storyZh: "因為骨盆前傾一直腰痛,終於閃到腰,去咗鬆返腰嗰一帶。",
+    tip: "「腰」漢字詞讀「よう」(腰痛),和語讀「こし」,前面有字連讀變「ごし」。"
+  },
+  {
+    center: "し", type: "音",
+    words: [
+      { w: "姿勢", r: "しせい", zh: "姿勢" },
+      { w: "しびれ", r: "しびれ", zh: "麻痺" },
+      { w: "四十肩", r: "しじゅうかた", zh: "肩周炎" },
+      { w: "湿布", r: "しっぷ", zh: "藥膏貼" }
+    ],
+    story: "姿勢（しせい）が悪（わる）くて四十肩（しじゅうかた）に。しびれもあるので湿布（しっぷ）を貼（は）った。",
+    storyZh: "姿勢差搞到肩周炎,仲有啲麻,所以貼咗藥膏貼。"
+  },
+  {
+    center: "痛", type: "字",
+    words: [
+      { w: "頭痛", r: "ずつう", zh: "頭痛" },
+      { w: "腰痛", r: "ようつう", zh: "腰痛" },
+      { w: "鈍痛", r: "どんつう", zh: "悶痛" },
+      { w: "痛気持ちいい", r: "いたきもちいい", zh: "痛得舒服" }
+    ],
+    story: "頭痛（ずつう）も腰痛（ようつう）も鈍痛（どんつう）だったのに、押（お）されたら痛気持（いたきも）ちいい。",
+    storyZh: "頭痛腰痛都係悶悶哋痛,點知一撳落去痛得好舒服。",
+    tip: "「痛」漢字詞讀「つう」,形容詞讀「いたい」。"
+  },
+  {
+    center: "あ", type: "音",
+    words: [
+      { w: "頭", r: "あたま", zh: "頭" },
+      { w: "顎", r: "あご", zh: "下巴" },
+      { w: "足", r: "あし", zh: "腳" },
+      { w: "仰向け", r: "あおむけ", zh: "仰躺" }
+    ],
+    story: "仰向（あおむ）けになって、頭（あたま）から足（あし）まで、顎（あご）の力（ちから）も抜（ぬ）いて。",
+    storyZh: "仰躺,由頭到腳,連下巴都放鬆埋。"
+  },
+  {
+    center: "体", type: "字",
+    words: [
+      { w: "整体", r: "せいたい", zh: "整體" },
+      { w: "体調", r: "たいちょう", zh: "身體狀況" },
+      { w: "体幹", r: "たいかん", zh: "核心肌群" },
+      { w: "体", r: "からだ", zh: "身體" }
+    ],
+    story: "体調（たいちょう）が悪（わる）い時（とき）は整体（せいたい）へ。体幹（たいかん）を鍛（きた）えて体（からだ）を守（まも）ろう。",
+    storyZh: "身體唔妥就去整體,練好核心保護身體。"
+  },
+  {
+    center: "ふ", type: "音",
+    words: [
+      { w: "太もも", r: "ふともも", zh: "大腿" },
+      { w: "ふくらはぎ", r: "ふくらはぎ", zh: "小腿肚" },
+      { w: "不調", r: "ふちょう", zh: "唔舒服/毛病" },
+      { w: "古傷", r: "ふるきず", zh: "舊患" }
+    ],
+    story: "古傷（ふるきず）のせいか、太（ふと）ももとふくらはぎの不調（ふちょう）が続（つづ）く。",
+    storyZh: "可能係舊患,大腿同小腿肚一直唔舒服。"
   }
 ];
 
@@ -633,7 +931,7 @@ const SUBJECTS = [
         id: "wedding-interpreter",
         icon: "💍",
         title: "沖繩婚禮中日口譯",
-        subtitle: "面試準備 · 情境詞彙 · 選擇題測驗",
+        subtitle: "面試準備 · 情境詞彙 · Rundown 中英日 · 選擇題測驗",
         levels: WEDDING_INTERPRETER_LEVELS
       },
       {
@@ -661,7 +959,9 @@ const SUBJECTS = [
         id: "seitai",
         icon: "💆",
         title: "整骨・整體",
-        subtitle: "身體部位、症狀、痛法擬態語、問診用句",
+        subtitle: "人體圖、十字連結記憶、痛法擬態語、問診與按摩用句",
+        bodyMap: SEITAI_BODY_MAP,
+        crosses: SEITAI_CROSSES,
         levels: SEITAI_LEVELS
       }
     ]
