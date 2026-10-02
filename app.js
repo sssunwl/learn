@@ -375,6 +375,34 @@ const FLOW_PLANS = {
       <circle class="cp-person groom" cx="196" cy="146" r="6" />`,
     legend: `<span class="dot priest"></span>牧師 <span class="dot bride"></span>新婦 <span class="dot groom"></span>新郎`
   },
+  beach: {
+    label: "沙灘二次會平面圖",
+    svg: (() => {
+      const lane = [];
+      for (let y = 262; y <= 382; y += 24) {
+        lane.push(`<circle cx="146" cy="${y}" r="4" /><circle cx="214" cy="${y}" r="4" />`);
+      }
+      const high = [175, 225, 275].map((y) => `<circle cx="292" cy="${y}" r="13" />`).join("");
+      return `
+        <rect class="bc-sea" x="10" y="10" width="340" height="80" rx="10" />
+        <path class="bc-wave" d="M20,70 q15,-10 30,0 t30,0 t30,0 t30,0 t30,0 t30,0 t30,0 t30,0 t30,0 t30,0 t30,0" />
+        <rect class="bc-sand" x="10" y="88" width="340" height="352" rx="10" />
+        <rect class="bc-floor" x="120" y="150" width="120" height="70" rx="6" />
+        <rect class="cp-organ" x="36" y="160" width="44" height="24" rx="3" />
+        <g class="cp-pews">${high}</g>
+        <rect class="bq-photo" x="132" y="246" width="96" height="150" rx="8" />
+        <g class="bc-guests">${lane.join("")}</g>
+        <rect class="bc-bucket" x="290" y="330" width="18" height="16" rx="3" />
+        <rect class="cp-door" x="150" y="436" width="60" height="8" rx="2" />
+        <rect class="bc-park" x="10" y="468" width="340" height="70" rx="10" />
+        <rect class="bc-car" x="44" y="488" width="34" height="18" rx="5" />
+        <rect class="bc-car" x="250" y="488" width="56" height="22" rx="5" />`;
+    })(),
+    people: `
+      <circle class="cp-person bride" cx="166" cy="186" r="6" />
+      <circle class="cp-person groom" cx="194" cy="186" r="6" />`,
+    legend: `<span class="dot bride"></span>新婦 <span class="dot groom"></span>新郎`
+  },
   banquet: {
     label: "宴會廳平面圖",
     svg: (() => {

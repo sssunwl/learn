@@ -638,3 +638,13 @@ button.cp-step-ja { border: 1px dashed var(--gold); border-radius: 10px; backgro
 .cp-step-note { font-size: 0.85rem; color: var(--ink); white-space: pre-line; margin-top: 10px; padding-top: 10px; border-top: 1px dashed var(--line); }
 .cp-step .story-actions .btn:not(.speak) { flex: 1; }
 .cp-hide { width: 100%; margin-top: 8px; }
+
+/* 沙灘二次會底圖 */
+.bc-sea { fill: #cfe5ee; }
+.bc-wave { fill: none; stroke: #fff; stroke-width: 2; opacity: 0.8; }
+.bc-sand { fill: #f6ead6; }
+.bc-floor { fill: #e4cfb0; stroke: var(--gold); }
+.bc-guests circle { fill: #c9b6a0; }
+.bc-bucket { fill: #9fc3d6; stroke: #7aa6bd; }
+.bc-park { fill: #ece8e3; }
+.bc-car { fill: #cfc7bd; }

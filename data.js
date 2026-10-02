@@ -986,6 +986,39 @@ const WEDDING_BANQUET_MAP = {
   ]
 };
 
+// 沙灘二次會流程圖:plan "beach";上面係海,中間沙灘(舞池、MC/DJ、仙女棒花道),下面停車場
+// 時間跟 10/3 rundown(20:30 入場、21:00–21:30 仙女棒、22:45 謝辭);排位細節以現場安排為準
+const WEDDING_BEACH_MAP = {
+  id: "beach", icon: "🏖️", title: "沙灘二次會流程圖", plan: "beach",
+  places: [
+    { x: 180, y: 40, ja: "海", kana: "うみ", zh: "海", anchor: "middle" },
+    { x: 180, y: 140, ja: "ダンスフロア", zh: "舞池/主舞台", small: true },
+    { x: 58, y: 200, ja: "DJ・司会", kana: "しかい", zh: "MC/音響", anchor: "middle" },
+    { x: 292, y: 304, ja: "ゲスト席", kana: "せき", zh: "賓客區", anchor: "middle" },
+    { x: 180, y: 412, ja: "スパークラーの花道", zh: "仙女棒花道", small: true },
+    { x: 299, y: 362, ja: "バケツ", zh: "滅火水桶", anchor: "middle", small: true },
+    { x: 180, y: 460, ja: "入口", kana: "いりぐち", zh: "入口", anchor: "middle" },
+    { x: 61, y: 525, ja: "新郎新婦の車", zh: "新人車", small: true },
+    { x: 278, y: 528, ja: "駐車場", kana: "ちゅうしゃじょう", zh: "停車場/巴士", anchor: "middle" }
+  ],
+  steps: [
+    { time: "20:00", ja: "シャトルバス到着・ご案内", kana: "シャトルバスとうちゃく・ごあんない", zh: "賓客坐巴士到達,帶去賓客區", en: "Guests arrive by shuttle and are guided in", at: [[292, 225]], path: "278,488 180,436 270,260", note: "沙灘夜晚暗,行路要提醒睇地下。\n足元（あしもと）が暗（くら）いので、お気（き）をつけください。" },
+    { time: "20:20", ja: "新郎新婦到着・スタンバイ", kana: "しんろうしんぷとうちゃく・スタンバイ", zh: "新人到達,車上待命", en: "Couple arrives and stands by", at: [[61, 497]], note: "新人換好第四套輕便服裝,兄弟揸車送到。等 MC cue 先入場。\nお二人（ふたり）は車（くるま）でスタンバイしています。" },
+    { time: "20:30", ja: "二次会スタート・司会挨拶", kana: "にじかいスタート・しかいあいさつ", zh: "二次會開始,MC 開場", en: "After party starts, MC opening", at: [[58, 172]], note: "由二次會 MC 接手主持,攝影師由 20:30 拍到 21:30(一個鐘)。\nただ今（いま）より二次会（にじかい）を始（はじ）めます。" },
+    { time: "20:30", ja: "新郎新婦入場", kana: "しんろうしんぷにゅうじょう", zh: "新人進場", en: "Couple's entrance", at: [[180, 186]], path: "61,488 180,440 180,224", note: "新郎新婦（しんろうしんぷ）のご入場（にゅうじょう）です！皆様（みなさま）、拍手（はくしゅ）でお迎（むか）えください。" },
+    { time: "20:35", ja: "新郎スピーチ", kana: "しんろうスピーチ", zh: "新郎致辭", en: "Groom speech", at: [[194, 186]], note: "Cue:致辭前請音響熄音樂或者收細聲。\nBGMを小（ちい）さくしてください。" },
+    { time: "20:40", ja: "ファーストダンス", kana: "", zh: "首支舞", en: "First dance", at: [[166, 186], [194, 186]], note: "Cue:音響開跳舞音樂。跳完可以邀請賓客一齊落舞池。\n皆様（みなさま）もぜひダンスフロアへどうぞ！" },
+    { time: "21:00", ja: "スパークラーの準備・二列に整列", kana: "スパークラーのじゅんび・にれつにせいれつ", zh: "派仙女棒,賓客排兩行", en: "Hand out sparklers, guests line up in two rows", at: [[146, 310], [214, 310]], path: "292,275 230,300", note: "請賓客面對面排兩行,中間留位俾新人行。\nスパークラーをお配（くば）りします。二列（にれつ）に並（なら）んでください。" },
+    { time: "21:05", ja: "点火", kana: "てんか", zh: "點火", en: "Light the sparklers", at: [[146, 286], [214, 286]], note: "安全提醒:唔好向人、唔好太近衫同頭髮。\n火（ひ）の取（と）り扱（あつか）いにご注意（ちゅうい）ください。人（ひと）に向（む）けないでください。" },
+    { time: "21:10", ja: "スパークラー撮影", kana: "スパークラーさつえい", zh: "新人行過仙女棒花道拍攝", en: "Sparkler send-off shooting", at: [[180, 322]], path: "180,392 180,250", note: "新人由花道一頭行到另一頭,攝影師喺前面影。可能要行多次,聽攝影師指示。\nもう一回（いっかい）お願（ねが）いします！" },
+    { time: "21:25", ja: "消火・後片付け", kana: "しょうか・あとかたづけ", zh: "熄滅仙女棒、收拾", en: "Extinguish sparklers and tidy up", at: [[299, 338]], path: "214,330 288,338", note: "用完嘅仙女棒放入水桶,唔好插落沙或者掉地。\n使（つか）い終（お）わったスパークラーはバケツに入（い）れてください。" },
+    { time: "21:30", ja: "カメラマン撮影終了", kana: "カメラマンさつえいしゅうりょう", zh: "攝影師拍攝完結", en: "Photographer wraps up", at: [[180, 186]], note: "Shooting 一個鐘完結。之後仲想影要自己用手機。\nカメラマンの撮影（さつえい）はここまでです。" },
+    { time: "21:30", ja: "ご歓談タイム", kana: "ごかんだんタイム", zh: "自由交流時間", en: "Free time to mingle", at: [[292, 175], [180, 186]], note: "どうぞごゆっくりお楽（たの）しみください。" },
+    { time: "22:45", ja: "謝辞", kana: "しゃじ", zh: "答謝致辭", en: "Thank-you speech", at: [[166, 186], [194, 186]], note: "Cue:收細音樂。\n本日（ほんじつ）は最後（さいご）までありがとうございました。" },
+    { time: "22:50", ja: "お見送り・ご案内", kana: "おみおくり・ごあんない", zh: "送客,帶去停車場", en: "Escort guests out to the parking area", at: [[278, 497]], path: "180,224 180,440 270,488", note: "提醒執齊隨身物品,夜晚沙灘好易跌嘢。\nお忘（わす）れ物（もの）のないよう、お気（き）をつけてお帰（かえ）りください。" }
+  ]
+};
+
 // 婚禮口譯嘅十字連結記憶(格式同 SEITAI_CROSSES)
 const WEDDING_CROSSES = [
   {
@@ -1121,7 +1154,7 @@ const SUBJECTS = [
         icon: "💍",
         title: "沖繩婚禮中日口譯",
         subtitle: "面試準備 · 情境詞彙 · Rundown 中英日 · 選擇題測驗",
-        flowMaps: [WEDDING_CHAPEL_MAP, WEDDING_BANQUET_MAP],
+        flowMaps: [WEDDING_CHAPEL_MAP, WEDDING_BANQUET_MAP, WEDDING_BEACH_MAP],
         crosses: WEDDING_CROSSES,
         levels: WEDDING_INTERPRETER_LEVELS
       },
