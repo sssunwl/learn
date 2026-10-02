@@ -917,10 +917,11 @@ const SEITAI_CROSSES = [
   }
 ];
 
-// 教堂儀式流程圖:topic 主頁嘅俯視平面圖(app.js 嘅 renderChapelMap)
+// 教堂儀式流程圖:topic 主頁嘅俯視平面圖(app.js 嘅 renderFlowMap)
 // viewBox 360×540,上面係祭壇,下面係入口;面向祭壇右邊=新郎側、左邊=新婦側
 // step.at = 呢一步發生嘅位置,step.path = 有人行動嘅路線(可選)
 const WEDDING_CHAPEL_MAP = {
+  id: "chapel", icon: "⛪", title: "教堂儀式流程圖", plan: "chapel",
   places: [
     { x: 180, y: 50, ja: "ステンドグラス", zh: "彩繪玻璃", small: true },
     { x: 228, y: 96, ja: "祭壇", kana: "さいだん", zh: "祭壇", anchor: "start" },
@@ -943,6 +944,45 @@ const WEDDING_CHAPEL_MAP = {
     { ja: "結婚成立宣言", kana: "けっこんせいりつせんげん", zh: "宣佈結婚成立", en: "Declaration of marriage", at: [[180, 118]], note: "牧師宣佈兩人正式成為夫婦,全場拍手。" },
     { ja: "新郎新婦退場", kana: "しんろうしんぷたいじょう", zh: "新人退場", en: "Recessional (couple exits)", at: [[180, 300]], path: "180,146 180,476", note: "新人一齊行返出去,賓客拍手送。" },
     { ja: "フラワーシャワー", kana: "", zh: "撒花瓣祝福", en: "Flower shower", at: [[180, 524]], note: "喺教堂門口撒花瓣祝福新人。工作人員會預先派花瓣,要提醒賓客先出去排好。\n皆様（みなさま）、お先（さき）にチャペルの外（そと）へお願（ねが）いします。" }
+  ]
+};
+
+// 婚宴流程圖:同教堂圖共用 renderFlowMap,底圖 plan "banquet"
+// 上面係高砂(主家席)同螢幕,中間圓枱,下面入口;廳外有受付、控室,最底係二次會沙灘
+// 流程同時間跟 SS 2026-10-03 真實 rundown(新人/MC/工作人員姓名同場地名唔入 repo)
+const WEDDING_BANQUET_MAP = {
+  id: "banquet", icon: "🥂", title: "婚宴＋二次會流程圖", plan: "banquet",
+  places: [
+    { x: 180, y: 46, ja: "スクリーン", zh: "螢幕", small: true },
+    { x: 248, y: 62, ja: "高砂", kana: "たかさご", zh: "新人主家席", anchor: "start" },
+    { x: 49, y: 86, ja: "司会台", kana: "しかいだい", zh: "MC 台", anchor: "middle" },
+    { x: 180, y: 124, ja: "フォトスペース", zh: "影相區", small: true },
+    { x: 100, y: 345, ja: "円卓", kana: "えんたく", zh: "賓客圓枱", anchor: "middle" },
+    { x: 311, y: 376, ja: "音響ブース", zh: "音響控制", anchor: "middle", small: true },
+    { x: 180, y: 436, ja: "入口", kana: "いりぐち", zh: "入口", anchor: "middle" },
+    { x: 70, y: 474, ja: "受付", kana: "うけつけ", zh: "簽到處", anchor: "middle" },
+    { x: 295, y: 482, ja: "控室", kana: "ひかえしつ", zh: "新人休息/換衫室", anchor: "middle" },
+    { x: 180, y: 520, ja: "ビーチ（二次会）", zh: "沙灘 After Party", anchor: "middle" }
+  ],
+  steps: [
+    { time: "17:15", ja: "ヘアメイク直し・お色直し", kana: "ヘアメイクなおし・おいろなおし", zh: "新人補妝、換第三套造型", en: "Makeup touch-up and outfit change (3rd dress)", at: [[295, 454]], note: "完成後化妝師會離開。\n3着目（さんちゃくめ）のドレスにお色直（いろなお）しします。" },
+    { time: "17:40", ja: "受付開始", kana: "うけつけかいし", zh: "嘉賓簽到", en: "Guest sign-in", at: [[70, 451]], note: "受付（うけつけ）はこちらです。ご芳名（ほうめい）をお願（ねが）いします。" },
+    { time: "18:00", ja: "新郎新婦入場", kana: "しんろうしんぷにゅうじょう", zh: "新人進場", en: "Bride and groom march-in", at: [[180, 64]], path: "180,416 180,96", note: "進場歌響起,新人由入口行到高砂。\n新郎新婦（しんろうしんぷ）のご入場（にゅうじょう）です。皆様（みなさま）、拍手（はくしゅ）でお迎（むか）えください。" },
+    { time: "18:00", ja: "ウェルカムスピーチ", kana: "", zh: "新郎、新娘致辭", en: "Speeches from groom and bride", at: [[166, 64], [194, 64]], note: "Cue:進場後 MC 示意音響熄音樂,再到新人致辭。\nBGMを止（と）めてください。" },
+    { time: "18:15", ja: "乾杯", kana: "かんぱい", zh: "祝酒", en: "Toasting", at: [[180, 64]], note: "Cue:MC 喊「乾杯!」嗰下,音響開音樂(Wedding Medley)。\n皆様（みなさま）、グラスをお持（も）ちください。乾杯（かんぱい）！" },
+    { time: "18:20", ja: "お料理のサーブ開始", kana: "おりょうりのサーブかいし", zh: "開始上菜", en: "Start to serve dishes", at: [[70, 160], [290, 230], [130, 300]], note: "お料理（りょうり）をお出（だ）ししてください。" },
+    { time: "18:30", ja: "映像上映①", kana: "えいぞうじょうえい", zh: "播片 1(2 分鐘)", en: "Video 1 (2 mins)", at: [[180, 31], [311, 394]], note: "Cue 四步:\n① 音響落螢幕 スクリーンを下（お）ろす\n② MC 簡單介紹 司会（しかい）が紹介（しょうかい）\n③ MC 示意播片 映像（えいぞう）を流（なが）す\n④ 播完收螢幕 スクリーンを上（あ）げる" },
+    { time: "18:30", ja: "フォトタイム", kana: "", zh: "自由拍照", en: "Free flow photo taking", at: [[180, 108]], note: "MC 請各組賓客出嚟前面影相。\n写真撮影（しゃしんさつえい）をしますので、前（まえ）へお越（こ）しください。" },
+    { time: "18:45", ja: "友人スピーチ", kana: "ゆうじんスピーチ", zh: "伴娘、兄弟致辭", en: "Bridesmaid + Groomsmen speech", at: [[49, 62], [180, 108]], note: "Cue:MC 示意音響熄音樂。\nブライズメイドとアッシャーからのスピーチです。" },
+    { time: "19:00", ja: "余興・クイズ", kana: "よきょう・クイズ", zh: "遊戲:9 問 9 答(沖繩手信做獎品)", en: "Games: Q&A quiz (Okinawa souvenirs)", at: [[180, 108]], note: "沖縄（おきなわ）のお土産（みやげ）が当（あ）たるクイズです。" },
+    { time: "19:15", ja: "ブラインドボックス開封", kana: "ブラインドボックスかいふう", zh: "一齊開盲盒", en: "Open the blind boxes together", at: [[130, 160], [230, 230], [70, 300]], note: "日本人未必識「盲盒」,可以講:中身（なかみ）が分（わ）からない箱（はこ）を皆（みな）で開（あ）けます。" },
+    { time: "19:25", ja: "映像上映②", kana: "えいぞうじょうえい", zh: "播片 2(8 分鐘)", en: "Video 2 (8 mins)", at: [[180, 31], [311, 394]], note: "同播片 1 一樣嘅 cue 四步:落螢幕 → MC 介紹 → 播片 → 收螢幕。" },
+    { time: "19:30", ja: "テーブルラウンド", kana: "", zh: "逐枱敬酒", en: "Toasting at each table", at: [], path: "180,96 130,130 70,190 100,265 160,265 230,265 290,190 230,130", note: "19:30–19:50。新人逐枱同賓客乾杯影相。\n各卓（かくたく）を回（まわ）って乾杯（かんぱい）します。" },
+    { time: "20:00", ja: "お見送り", kana: "おみおくり", zh: "送客", en: "Send off guests", at: [[180, 416]], note: "MC 請賓客盡快上穿梭巴士;開始送客時要通知佈置組同二次會 MC。\nシャトルバスにお早（はや）めにご乗車（じょうしゃ）ください。" },
+    { time: "20:00", ja: "4着目に着替え・ビーチへ移動", kana: "よんちゃくめにきがえ・ビーチへいどう", zh: "換輕便第四套、坐車去沙灘", en: "Change into casual 4th outfit, drive to the beach", at: [[180, 520]], path: "180,424 258,452 250,500 205,512", note: "20:00–20:20 返酒店換輕便服裝,20:00–20:30 坐車去沙灘(兄弟負責車)。\nお二人（ふたり）は着替（きが）えてからビーチへ移動（いどう）します。" },
+    { time: "20:30", ja: "二次会入場・ファーストダンス", kana: "にじかいにゅうじょう・ファーストダンス", zh: "二次會進場、新郎致辭+跳舞", en: "After party entrance, groom speech + dance", at: [[180, 520]], note: "二次会（にじかい）の司会者（しかいしゃ）にバトンタッチ。新郎（しんろう）のスピーチの後（あと）、ファーストダンスです。" },
+    { time: "21:00", ja: "スパークラー撮影", kana: "スパークラーさつえい", zh: "仙女棒拍攝", en: "Sparkler shooting", at: [[120, 520], [240, 520]], note: "21:00–21:30。スパークラーに火（ひ）をつけますので、足元（あしもと）にお気（き）をつけください。" },
+    { time: "22:45", ja: "謝辞・お見送り", kana: "しゃじ・おみおくり", zh: "答謝致辭、帶客離場", en: "Thank-you speech and escort for leaving", at: [[180, 520]], note: "本日（ほんじつ）は誠（まこと）にありがとうございました。お気（き）をつけてお帰（かえ）りください。" }
   ]
 };
 
@@ -1081,7 +1121,7 @@ const SUBJECTS = [
         icon: "💍",
         title: "沖繩婚禮中日口譯",
         subtitle: "面試準備 · 情境詞彙 · Rundown 中英日 · 選擇題測驗",
-        chapelMap: WEDDING_CHAPEL_MAP,
+        flowMaps: [WEDDING_CHAPEL_MAP, WEDDING_BANQUET_MAP],
         crosses: WEDDING_CROSSES,
         levels: WEDDING_INTERPRETER_LEVELS
       },

@@ -215,14 +215,14 @@ function renderTopic() {
     </div>
     <button class="btn summary-link" id="summary-btn">📋 總覽全部內容(快速預習/複習)</button>
     ${topic.bodyMap ? `<section class="visual-section"><h3>🧍 人體圖・部位名稱</h3><div id="body-map"></div></section>` : ""}
-    ${topic.chapelMap ? `<section class="visual-section"><h3>⛪ 教堂儀式流程圖</h3><div id="chapel-map"></div></section>` : ""}
+    ${(topic.flowMaps || []).map((m) => `<section class="visual-section"><h3>${m.icon} ${m.title}</h3><div id="flow-${m.id}"></div></section>`).join("")}
     ${topic.crosses ? `<section class="visual-section"><h3>✚ 十字連結記憶</h3><div id="cross-box"></div></section>` : ""}
-    ${topic.bodyMap || topic.crosses || topic.chapelMap ? `<h3 class="levels-heading">📚 學習卡</h3>` : ""}
+    ${topic.bodyMap || topic.crosses || topic.flowMaps ? `<h3 class="levels-heading">📚 學習卡</h3>` : ""}
     <div class="level-grid">${cards}</div>
   `;
 
   if (topic.bodyMap) renderBodyMap(topic);
-  if (topic.chapelMap) renderChapelMap(topic);
+  (topic.flowMaps || []).forEach((m) => renderFlowMap(topic, m));
   if (topic.crosses) renderCross(topic);
 
   document.getElementById("back-btn").addEventListener("click", () => go("subject", { subjectId: state.subjectId }));
@@ -344,34 +344,71 @@ function renderBodyMap(topic) {
   );
 }
 
-/* ---- 教堂儀式流程圖:俯視平面圖 + 逐步走,每步標出位置同行走路線 ---- */
-const chapelState = { step: 0, hide: false, revealed: false };
+/* ---- 流程圖(教堂/婚宴):俯視平面圖 + 逐步走,每步標出位置同行走路線 ---- */
+// 每張圖用 map.plan 揀底圖;底圖、固定人物、圖例都喺 FLOW_PLANS
+const flowStates = {};
 
-const CHAPEL_PLAN = (() => {
-  const pews = [];
-  for (let y = 182; y <= 420; y += 30) {
-    pews.push(`<rect x="40" y="${y}" width="108" height="13" rx="3" /><rect x="212" y="${y}" width="108" height="13" rx="3" />`);
+const FLOW_PLANS = {
+  chapel: {
+    label: "教堂平面圖",
+    svg: (() => {
+      const pews = [];
+      for (let y = 182; y <= 420; y += 30) {
+        pews.push(`<rect x="40" y="${y}" width="108" height="13" rx="3" /><rect x="212" y="${y}" width="108" height="13" rx="3" />`);
+      }
+      return `
+        <rect class="cp-wall" x="20" y="20" width="320" height="458" rx="12" />
+        <rect class="cp-glass" x="150" y="28" width="60" height="12" rx="3" />
+        <line class="cp-cross" x1="180" y1="58" x2="180" y2="84" /><line class="cp-cross" x1="172" y1="65" x2="188" y2="65" />
+        <rect class="cp-altar" x="140" y="88" width="80" height="16" rx="3" />
+        <rect class="cp-organ" x="34" y="70" width="36" height="22" rx="3" />
+        <rect class="cp-aisle" x="160" y="158" width="40" height="318" />
+        <text class="cp-aisle-text" x="171" y="330" transform="rotate(-90 171 330)" text-anchor="middle" lang="ja">バージンロード</text>
+        <g class="cp-pews">${pews.join("")}</g>
+        <rect class="cp-door" x="150" y="472" width="60" height="9" rx="2" />
+        <text class="cp-outside" x="180" y="536" text-anchor="middle" lang="ja">チャペル前（まえ）</text>`;
+    })(),
+    // 面向祭壇:新婦左、新郎右
+    people: `
+      <circle class="cp-person priest" cx="180" cy="118" r="6" />
+      <circle class="cp-person bride" cx="164" cy="146" r="6" />
+      <circle class="cp-person groom" cx="196" cy="146" r="6" />`,
+    legend: `<span class="dot priest"></span>牧師 <span class="dot bride"></span>新婦 <span class="dot groom"></span>新郎`
+  },
+  banquet: {
+    label: "宴會廳平面圖",
+    svg: (() => {
+      const tables = [];
+      [160, 230, 300].forEach((y) => [70, 130, 230, 290].forEach((x) => tables.push(`<circle cx="${x}" cy="${y}" r="20" />`)));
+      return `
+        <rect class="cp-wall" x="20" y="20" width="320" height="398" rx="12" />
+        <rect class="bq-screen" x="120" y="28" width="120" height="7" rx="2" />
+        <rect class="cp-altar" x="120" y="50" width="120" height="28" rx="4" />
+        <rect class="bq-photo" x="120" y="88" width="120" height="40" rx="6" />
+        <rect class="cp-organ" x="34" y="52" width="30" height="20" rx="3" />
+        <rect class="cp-organ" x="296" y="384" width="30" height="20" rx="3" />
+        <g class="cp-pews">${tables.join("")}</g>
+        <rect class="cp-door" x="150" y="413" width="60" height="9" rx="2" />
+        <rect class="cp-organ" x="40" y="444" width="60" height="14" rx="3" />
+        <rect class="cp-organ" x="262" y="440" width="66" height="28" rx="4" />
+        <rect class="bq-beach" x="20" y="500" width="320" height="42" rx="10" />`;
+    })(),
+    people: `
+      <circle class="cp-person bride" cx="166" cy="64" r="6" />
+      <circle class="cp-person groom" cx="194" cy="64" r="6" />`,
+    legend: `<span class="dot bride"></span>新婦 <span class="dot groom"></span>新郎`
   }
-  return `
-    <rect class="cp-wall" x="20" y="20" width="320" height="458" rx="12" />
-    <rect class="cp-glass" x="150" y="28" width="60" height="12" rx="3" />
-    <line class="cp-cross" x1="180" y1="58" x2="180" y2="84" /><line class="cp-cross" x1="172" y1="65" x2="188" y2="65" />
-    <rect class="cp-altar" x="140" y="88" width="80" height="16" rx="3" />
-    <rect class="cp-organ" x="34" y="70" width="36" height="22" rx="3" />
-    <rect class="cp-aisle" x="160" y="158" width="40" height="318" />
-    <text class="cp-aisle-text" x="171" y="330" transform="rotate(-90 171 330)" text-anchor="middle" lang="ja">バージンロード</text>
-    <g class="cp-pews">${pews.join("")}</g>
-    <rect class="cp-door" x="150" y="472" width="60" height="9" rx="2" />
-    <text class="cp-outside" x="180" y="536" text-anchor="middle" lang="ja">チャペル前（まえ）</text>`;
-})();
+};
 
-function renderChapelMap(topic) {
-  const box = document.getElementById("chapel-map");
+function renderFlowMap(topic, map) {
+  const box = document.getElementById(`flow-${map.id}`);
   if (!box) return;
-  const { places, steps } = topic.chapelMap;
-  const s = chapelState;
+  const plan = FLOW_PLANS[map.plan];
+  const { places, steps } = map;
+  const s = (flowStates[map.id] ||= { step: 0, hide: false, revealed: false });
   const step = steps[s.step];
   const shown = !s.hide || s.revealed;
+  const rerender = () => renderFlowMap(topic, map);
 
   const placeLabels = places
     .map((p) => `
@@ -379,63 +416,59 @@ function renderChapelMap(topic) {
       ${p.small ? "" : `<text class="cp-place-zh" x="${p.x}" y="${p.y + 12}" text-anchor="${p.anchor || "middle"}">${p.zh}</text>`}`)
     .join("");
 
-  // 固定擺位:牧師、新人(面向祭壇,新婦左、新郎右)
-  const people = `
-    <circle class="cp-person priest" cx="180" cy="118" r="6" />
-    <circle class="cp-person bride" cx="164" cy="146" r="6" />
-    <circle class="cp-person groom" cx="196" cy="146" r="6" />`;
-
-  const route = step.path ? `<polyline class="cp-route" points="${step.path}" marker-end="url(#cp-arrow)" />` : "";
-  const markers = step.at.map(([x, y]) => `<circle class="cp-pulse" cx="${x}" cy="${y}" r="14" /><circle class="cp-mark" cx="${x}" cy="${y}" r="5" />`).join("");
+  const arrowId = `${map.id}-arrow`;
+  const route = step.path ? `<polyline class="cp-route" points="${step.path}" marker-end="url(#${arrowId})" />` : "";
+  const markers = (step.at || []).map(([x, y]) => `<circle class="cp-pulse" cx="${x}" cy="${y}" r="14" /><circle class="cp-mark" cx="${x}" cy="${y}" r="5" />`).join("");
 
   const chips = steps
     .map((st, i) => `<button class="cp-chip ${i === s.step ? "active" : ""}" data-i="${i}" title="${st.zh}">${i + 1}</button>`)
     .join("");
 
   box.innerHTML = `
-    <svg class="chapel-svg" viewBox="0 0 360 545" role="img" aria-label="教堂平面圖,第 ${s.step + 1} 步:${step.zh}">
-      <defs><marker id="cp-arrow" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 Z" /></marker></defs>
-      ${CHAPEL_PLAN}
+    <svg class="chapel-svg" viewBox="0 0 360 545" role="img" aria-label="${plan.label},第 ${s.step + 1} 步:${step.zh}">
+      <defs><marker id="${arrowId}" class="cp-arrow" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 Z" /></marker></defs>
+      ${plan.svg}
       ${placeLabels}
-      ${people}
+      ${plan.people}
       ${route}
       ${markers}
     </svg>
-    <div class="cp-legend"><span class="dot priest"></span>牧師 <span class="dot bride"></span>新婦 <span class="dot groom"></span>新郎 <span class="dot mark"></span>呢一步</div>
+    <div class="cp-legend">${plan.legend} <span class="dot mark"></span>呢一步</div>
     <div class="cp-chips">${chips}</div>
     <div class="cp-step">
-      <div class="cp-step-no">第 ${s.step + 1} / ${steps.length} 步</div>
+      <div class="cp-step-no">第 ${s.step + 1} / ${steps.length} 步${step.time ? ` · ${step.time}` : ""}</div>
       <div class="cp-step-zh">${step.zh}</div>
       <div class="cp-step-en" lang="en">${escapeHtml(step.en)}</div>
       ${shown
         ? `<div class="cp-step-ja" lang="ja">${step.ja}</div>${step.kana ? `<div class="cp-step-kana" lang="ja">${step.kana}</div>` : ""}`
-        : `<button class="cp-step-ja hidden-ans" id="cp-reveal" lang="ja">？ 點一下睇日文</button>`}
+        : `<button class="cp-step-ja hidden-ans fm-reveal" lang="ja">？ 點一下睇日文</button>`}
       <div class="cp-step-note">${escapeHtml(step.note)}</div>
       <div class="story-actions">
-        <button class="btn" id="cp-prev" ${s.step === 0 ? "disabled" : ""}>← 上一步</button>
-        <button class="btn speak" id="cp-speak" title="播放發音">🔊</button>
-        <button class="btn primary" id="cp-next" ${s.step === steps.length - 1 ? "disabled" : ""}>下一步 →</button>
+        <button class="btn fm-prev" ${s.step === 0 ? "disabled" : ""}>← 上一步</button>
+        <button class="btn speak fm-speak" title="播放發音">🔊</button>
+        <button class="btn primary fm-next" ${s.step === steps.length - 1 ? "disabled" : ""}>下一步 →</button>
       </div>
-      <button class="btn cp-hide ${s.hide ? "primary" : ""}" id="cp-hide">${s.hide ? "👀 顯示全部" : "🙈 遮住日文自測"}</button>
+      <button class="btn cp-hide fm-hide ${s.hide ? "primary" : ""}">${s.hide ? "👀 顯示全部" : "🙈 遮住日文自測"}</button>
     </div>
   `;
 
+  const say = () => speak(step.kana || step.ja, "ja-JP");
   const goStep = (i) => {
     s.step = Math.max(0, Math.min(steps.length - 1, i));
     s.revealed = false;
-    renderChapelMap(topic);
+    rerender();
   };
   box.querySelectorAll(".cp-chip").forEach((b) => b.addEventListener("click", () => goStep(Number(b.dataset.i))));
-  box.querySelector("#cp-prev").addEventListener("click", () => goStep(s.step - 1));
-  box.querySelector("#cp-next").addEventListener("click", () => goStep(s.step + 1));
-  box.querySelector("#cp-speak").addEventListener("click", () => speak(step.kana || step.ja, "ja-JP"));
-  box.querySelector("#cp-hide").addEventListener("click", () => {
+  box.querySelector(".fm-prev").addEventListener("click", () => goStep(s.step - 1));
+  box.querySelector(".fm-next").addEventListener("click", () => goStep(s.step + 1));
+  box.querySelector(".fm-speak").addEventListener("click", say);
+  box.querySelector(".fm-hide").addEventListener("click", () => {
     s.hide = !s.hide;
     s.revealed = false;
-    renderChapelMap(topic);
+    rerender();
   });
-  const reveal = box.querySelector("#cp-reveal");
-  if (reveal) reveal.addEventListener("click", () => { s.revealed = true; renderChapelMap(topic); speak(step.kana || step.ja, "ja-JP"); });
+  const reveal = box.querySelector(".fm-reveal");
+  if (reveal) reveal.addEventListener("click", () => { s.revealed = true; rerender(); say(); });
 }
 
 /* ---- 十字連結記憶:中間共用字/音,四邊四個詞,一句故事串埋 ---- */

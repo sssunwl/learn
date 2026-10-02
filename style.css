@@ -600,7 +600,7 @@ footer.hint {
 .cp-organ { fill: #efe6da; stroke: var(--line); }
 .cp-aisle { fill: #f6e3df; }
 .cp-aisle-text { font-family: "Noto Sans JP", sans-serif; font-size: 11px; fill: var(--rose); letter-spacing: 0.15em; }
-.cp-pews rect { fill: #eadfd2; }
+.cp-pews rect, .cp-pews circle { fill: #eadfd2; }
 .cp-door { fill: var(--gold); }
 .cp-outside { font-family: "Noto Sans JP", sans-serif; font-size: 11px; fill: var(--ink-soft); }
 .cp-place { font-family: "Noto Sans JP", sans-serif; font-size: 13px; font-weight: 700; fill: var(--rose-deep); }
@@ -612,7 +612,10 @@ footer.hint {
 .cp-person.bride, .cp-legend .bride { fill: #e7a9a0; background: #e7a9a0; }
 .cp-person.groom, .cp-legend .groom { fill: #5f6f86; background: #5f6f86; }
 .cp-route { fill: none; stroke: var(--rose-deep); stroke-width: 3; stroke-dasharray: 6 5; stroke-linecap: round; stroke-linejoin: round; }
-#cp-arrow path { fill: var(--rose-deep); }
+.cp-arrow path { fill: var(--rose-deep); }
+.bq-screen { fill: #b9c2c9; }
+.bq-photo { fill: none; stroke: var(--gold); stroke-dasharray: 4 4; }
+.bq-beach { fill: #dcebf0; }
 .cp-mark { fill: var(--rose-deep); }
 .cp-pulse { fill: var(--rose); opacity: 0.25; }
 @media (prefers-reduced-motion: no-preference) {
